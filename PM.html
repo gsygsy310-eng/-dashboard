@@ -7,6 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1677ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="月报仪表盘">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
@@ -2647,11 +2652,118 @@
         .main-content::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
         .main-content::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
         .main-content { scrollbar-width: thin; scrollbar-color: #d1d5db transparent; }
+
+        /* ── 全局搜索 ── */
+        .global-search-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1100;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            padding: 10px 16px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+        }
+        .global-search-bar.open { display: flex; }
+        .global-search-bar input {
+            flex: 1;
+            border: 1.5px solid #1677ff;
+            border-radius: 8px;
+            padding: 9px 14px;
+            font-size: 14px;
+            outline: none;
+        }
+        .global-search-close {
+            background: none; border: none; font-size: 20px;
+            cursor: pointer; color: #666; padding: 4px;
+        }
+        .global-search-results {
+            position: fixed;
+            top: 54px; left: 0; right: 0;
+            z-index: 1099;
+            background: #fff;
+            max-height: 70vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            display: none;
+        }
+        .global-search-results.has-results { display: block; }
+        .gsr-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background .15s;
+        }
+        .gsr-item:hover { background: #f5f8ff; }
+        .gsr-item-name { font-size: 14px; font-weight: 500; color: #1f2329; margin-bottom: 4px; }
+        .gsr-item-meta { font-size: 12px; color: #888; }
+        .gsr-item-meta .gsr-month { color: #1677ff; font-weight: 500; margin-right: 8px; }
+        .gsr-item-meta .gsr-cat { display: inline-block; padding: 1px 8px; border-radius: 4px; margin-right: 6px; font-size: 11px; }
+        .gsr-item em { color: #e05a1e; font-style: normal; font-weight: 600; }
+        .gsr-empty { padding: 24px; text-align: center; color: #999; font-size: 14px; }
+        .global-search-btn {
+            background: none; border: none;
+            font-size: 18px; cursor: pointer;
+            color: #666; padding: 6px 8px;
+            border-radius: 6px;
+            transition: background .15s;
+        }
+        .global-search-btn:hover { background: #f0f4ff; color: #1677ff; }
+
+        /* ── 移动端卡片布局（480px以下，表格变卡片） ── */
+        @media (max-width: 480px) {
+            .features-section { overflow-x: visible !important; }
+            .features-table { min-width: unset !important; display: block !important; }
+            .features-table thead { display: none !important; }
+            .features-table tbody { display: block; }
+            .features-table tbody tr {
+                display: block;
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+                margin-bottom: 12px;
+                padding: 14px 14px 10px;
+                border: none !important;
+            }
+            .features-table tbody tr:nth-child(even) { background: #fff; }
+            .features-table tbody tr:hover { background: #f5f8ff; }
+            .features-table td {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                padding: 4px 0 !important;
+                border: none !important;
+                font-size: 13px;
+                line-height: 1.5;
+            }
+            .features-table td::before {
+                content: attr(data-label);
+                font-size: 11px;
+                color: #999;
+                min-width: 48px;
+                font-weight: 500;
+                padding-top: 1px;
+                flex-shrink: 0;
+            }
+            .features-table td:last-child {
+                margin-top: 6px;
+                padding-top: 8px !important;
+                border-top: 1px solid #f0f0f0 !important;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- 移动端菜单按钮 -->
     <button class="mobile-menu-btn" onclick="toggleMobileSidebar()">☰</button>
+    <!-- 全局搜索栏 -->
+    <div class="global-search-bar" id="global-search-bar">
+        <input type="text" id="global-search-input" placeholder="搜索所有月份的需求、PM、描述..." oninput="doGlobalSearch()" autocomplete="off">
+        <button class="global-search-close" onclick="closeGlobalSearch()">✕</button>
+    </div>
+    <div class="global-search-results" id="global-search-results"></div>
     <!-- 移动端遮罩层 -->
     <div class="mobile-overlay" onclick="toggleMobileSidebar()"></div>
     <div class="container">
@@ -2661,14 +2773,7 @@
             <div class="sidebar-nav-scroll">
             <div class="logo">
                 <span class="logo-icon">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- 外轮廓：D 形背景 -->
-                        <path d="M4 3h12C22.627 3 29 9.373 29 16s-6.373 13-13 13H4V3z" fill="#1a3272"/>
-                        <!-- 内部挖空：D 的内孔（白色） -->
-                        <path d="M10 9h5.5C18.814 9 22 12.186 22 16s-3.186 7-6.5 7H10V9z" fill="white"/>
-                        <!-- 左侧竖条遮住内孔左边，恢复 D 的竖笔画 -->
-                        <rect x="10" y="9" width="4.5" height="14" fill="#1a3272"/>
-                    </svg>
+                    <img src="https://img-ys011.didistatic.com/static/geralt/1737522473570iy34xseo82.png" alt="滴滴企业版" style="width: 32px; height: 32px; display: block;">
                 </span>
                 <span class="logo-text">滴滴企业版</span>
             </div>
@@ -4260,7 +4365,7 @@
                 <div class="intel-tabs">
                     <button id="tab-competitor" class="intel-tab-btn active-competitor" onclick="switchIntelTab('competitor')">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="9" height="14"/><rect x="13" y="3" width="9" height="18"/></svg>
-                        竞品产品动态 <span class="intel-tab-count">7</span>
+                        竞品产品动态 <span class="intel-tab-count">6</span>
                     </button>
                     <button id="tab-industry" class="intel-tab-btn" onclick="switchIntelTab('industry')">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
@@ -4284,7 +4389,7 @@
                     </div>
                     <div class="intel-digest-content" id="intel-digest-content">
                         <div class="intel-digest-item">
-                            <div class="intel-digest-item-label" style="color:#e05a1e">🏢 竞品重点 · 共7条</div>
+                            <div class="intel-digest-item-label" style="color:#e05a1e">🏢 竞品重点 · 共6条</div>
                             <div class="intel-digest-item-text">曹操出行⚡收购吉利商旅强势入局、携程「程星途」AI助手发布、携程主动下线AI调价助手合规整改</div>
                         </div>
                         <div class="intel-digest-item">
@@ -4376,19 +4481,6 @@
                             <span>2026-03-05</span>
                         </div>
                         <p>携程宣布3月10日起在商家管理后台下线"AI生意助手"（调价助手），成为国内首个主动下线该类功能的OTA平台。业界普遍认为是在反垄断调查压力下的主动合规整改。<br><span class="card-insight-green">💡 <b>销售启示：</b>可借势强调我们的<b>价格透明</b>和<b>合规性</b>，对比携程的"大数据杀熟"和垄断问题</span></p>
-                    </a>
-
-                    <a href="http://www.guojialvye.com/cb/lyzx/8772.html" target="_blank" class="competitor-card">
-                        <div class="card-title-row">
-                            <h4>同程商旅英文版正式上线，全球化差旅服务实现多端口覆盖</h4>
-                            <span class="badge-hot">⚡ 新功能</span>
-                        </div>
-                        <div class="meta">
-                            <span class="source-tag">国家旅业网</span>
-                            <span class="brand-tag brand-tongcheng">同程商旅</span>
-                            <span>2026-03-12</span>
-                        </div>
-                        <p>同程商旅英文版正式上线，实现APP、小程序、H5页面多端口全覆盖，与中文版功能体验保持一致，支持中英文无缝切换。同时面向全球用户开通7×24小时在线客服，整合AI客服与人工客服，满足跨国公司员工差异化差旅需求。</p>
                     </a>
 
                     <a href="https://m.traveldaily.cn/article/186463" target="_blank" class="competitor-card">
