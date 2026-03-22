@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商旅出行产品部月报仪表盘</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
@@ -13,7 +16,9 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            font-feature-settings: 'cv02', 'cv03', 'cv04';
+            font-variant-numeric: tabular-nums;
             background: #f5f7fa;
             min-height: 100vh;
             padding: 0;
@@ -75,9 +80,9 @@
             pointer-events: none;
         }
         .syr-label {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: rgba(100,116,139,0.55);
             text-align: center;
@@ -118,15 +123,15 @@
             gap: 1px;
         }
         .syr-year-tag {
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             color: rgba(100,116,139,0.45);
             text-transform: uppercase;
         }
         .syr-pct {
-            font-size: 26px;
-            font-weight: 800;
+            font-size: 24px;
+            font-weight: 700;
             line-height: 1;
             color: #1677ff;
             letter-spacing: -1.5px;
@@ -151,17 +156,17 @@
         .syr-stat { flex:1; text-align:center; padding: 10px 2px 2px; }
         .syr-stat + .syr-stat { border-left: 1px solid rgba(22,119,255,0.08); }
         .syr-stat-val {
-            font-size: 12.5px; font-weight: 700;
+            font-size: 13px; font-weight: 700;
             color: #1e293b; line-height: 1; margin-bottom: 4px;
         }
         .syr-stat-val.hi { color: #1677ff; }
         .syr-stat-key {
-            font-size: 9px; color: rgba(100,116,139,0.55);
-            font-weight: 500; letter-spacing: 0.3px;
+            font-size: 11px; color: rgba(100,116,139,0.55);
+            font-weight: 500; letter-spacing: 0;
         }
 
         .logo {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             margin: 0 16px 20px;
             padding: 0 0 16px;
@@ -180,7 +185,7 @@
 
         .logo-text {
             color: #1f2329;
-            letter-spacing: 0.3px;
+            letter-spacing: 0;
             font-weight: 600;
         }
 
@@ -199,9 +204,9 @@
         }
 
         .site-title-badge {
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             color: #1677ff;
             margin-bottom: 5px;
             opacity: 0.7;
@@ -209,10 +214,10 @@
         }
 
         .site-title-text {
-            font-size: 13.5px;
+            font-size: 14px;
             font-weight: 700;
             color: #1f2329;
-            letter-spacing: 0.3px;
+            letter-spacing: 0;
             line-height: 1.35;
         }
 
@@ -242,7 +247,7 @@
             font-size: 13px;
             font-weight: 600;
             color: #c4b5fd;
-            letter-spacing: 0.3px;
+            letter-spacing: 0;
         }
         .nav-item-ai .ai-dot {
             width: 5px; height: 5px;
@@ -318,7 +323,7 @@
         .ai-splash-eyebrow {
             font-size: 11px;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: rgba(167,139,250,0.6);
             margin-bottom: 14px;
@@ -329,7 +334,7 @@
             color: #f1eeff;
             line-height: 1.45;
             margin-bottom: 16px;
-            letter-spacing: 0.2px;
+            letter-spacing: 0;
         }
         .ai-splash-divider {
             width: 40px;
@@ -340,7 +345,7 @@
             opacity: 0.7;
         }
         .ai-splash-desc {
-            font-size: 14.5px;
+            font-size: 14px;
             line-height: 1.9;
             color: rgba(210, 218, 255, 0.68);
             margin-bottom: 32px;
@@ -381,8 +386,8 @@
             border-bottom: 1px solid rgba(124,58,237,0.25);
         }
         .ai-panel-title {
-            font-size: 26px;
-            font-weight: 900;
+            font-size: 24px;
+            font-weight: 700;
             background: linear-gradient(90deg, #a78bfa, #60a5fa, #f0abfc);
             background-size: 200% auto;
             -webkit-background-clip: text;
@@ -395,7 +400,7 @@
         .ai-panel-sub {
             font-size: 13px;
             color: rgba(200,210,255,0.55);
-            letter-spacing: 0.5px;
+            letter-spacing: 0;
         }
         .ai-video-section {
             padding: 32px 40px;
@@ -414,10 +419,10 @@
             animation: pulse-dot 1.5s ease-in-out infinite;
         }
         .ai-video-label-text {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: #c4b5fd;
-            letter-spacing: 0.5px;
+            letter-spacing: 0;
         }
         .ai-video-wrapper {
             border-radius: 16px;
@@ -498,7 +503,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 13.5px;
+            font-size: 14px;
             user-select: none;
             color: #646a73;
             font-weight: 400;
@@ -582,7 +587,7 @@
             color: #8f959e;
             margin-bottom: 10px;
             font-weight: 500;
-            letter-spacing: 0.3px;
+            letter-spacing: 0;
         }
 
         .stat-value {
@@ -635,7 +640,7 @@
             color: #8f959e;
             border-bottom: 1px solid #e5e7eb;
             font-size: 12px;
-            letter-spacing: 0.3px;
+            letter-spacing: 0;
         }
 
         .features-table th:first-child {
@@ -650,7 +655,7 @@
             padding: 13px 16px;
             border-bottom: 1px solid #f5f5f5;
             color: #3d3d3d;
-            font-size: 13.5px;
+            font-size: 14px;
         }
 
         .features-table tr:last-child td {
@@ -671,7 +676,7 @@
             border-radius: 6px;
             font-size: 12px;
             font-weight: 500;
-            letter-spacing: 0.2px;
+            letter-spacing: 0;
         }
 
         .category-tag.flight {
@@ -791,14 +796,14 @@
             position: absolute;
             top: -6px;
             right: -6px;
-            font-size: 7px;
+            font-size: 11px;
             font-weight: 700;
             color: #7c3aed;
             background: #f5f3ff;
             border: 1px solid #ddd6fe;
             border-radius: 3px;
             padding: 1px 3px;
-            letter-spacing: 0.2px;
+            letter-spacing: 0;
             line-height: 1.4;
             white-space: nowrap;
             pointer-events: none;
@@ -862,7 +867,7 @@
             font-size: 11px;
             font-weight: 600;
             color: #999;
-            letter-spacing: 0.5px;
+            letter-spacing: 0;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -965,7 +970,7 @@
             font-size: 12px;
             font-weight: 600;
             color: #999;
-            letter-spacing: 0.3px;
+            letter-spacing: 0;
         }
         .intel-digest-arrow {
             font-size: 11px;
@@ -1003,7 +1008,7 @@
             font-weight: 600;
         }
         .intel-digest-item-text {
-            font-size: 12.5px;
+            font-size: 13px;
             color: #444;
             line-height: 1.45;
         }
@@ -1018,7 +1023,7 @@
         .app-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
         .app-icon-img { width: 52px; height: 52px; border-radius: 13px; flex-shrink: 0; border: 1px solid #e8e8e8; }
         .app-meta-info { flex: 1; min-width: 0; }
-        .app-name-title { font-size: 15px; font-weight: 700; color: #1a1a1a; margin: 0 0 4px; }
+        .app-name-title { font-size: 16px; font-weight: 700; color: #1a1a1a; margin: 0 0 4px; }
         .app-version-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
         .app-ver-badge { background: #f0f4ff; color: #1677ff; padding: 1px 7px; border-radius: 4px; font-weight: 600; font-size: 11px; }
         .app-ver-badge.badge-new   { background: #fff7e6; color: #d97706; }
@@ -1033,7 +1038,7 @@
         .rating-score-text.score-poor { color: #dc2626; }
         .rating-count-text { font-size: 11px; color: #aaa; }
         .app-notes-box { font-size: 12px; color: #666; background: #f9f9f9; padding: 7px 10px; border-radius: 6px; margin-bottom: 12px; border-left: 3px solid #e0e0e0; line-height: 1.5; }
-        .appstore-section-label { font-size: 11px; font-weight: 600; color: #bbb; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .appstore-section-label { font-size: 11px; font-weight: 600; color: #bbb; letter-spacing: 0; margin-bottom: 8px; }
         .screenshot-strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 12px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
         .screenshot-strip::-webkit-scrollbar { height: 3px; }
         .screenshot-strip::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 2px; }
@@ -1044,7 +1049,7 @@
         .review-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; padding: 7px 10px; border-radius: 6px; background: #fafafa; line-height: 1.5; }
         .review-stars-pos { color: #f5a623; flex-shrink: 0; font-size: 11px; }
         .review-stars-neg { color: #dc2626; flex-shrink: 0; font-size: 11px; }
-        .review-ver-tag   { font-size: 10px; color: #bbb; flex-shrink: 0; padding-top: 1px; }
+        .review-ver-tag   { font-size: 11px; color: #bbb; flex-shrink: 0; padding-top: 1px; }
         .review-text-content { color: #555; }
 
         /* 竞品动态 */
@@ -1105,7 +1110,7 @@
         }
         .competitor-card h4 {
             color: #1a2340;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             line-height: 1.45;
             flex: 1;
@@ -1151,7 +1156,7 @@
         .competitor-card p {
             color: #4a5568;
             line-height: 1.7;
-            font-size: 13.5px;
+            font-size: 14px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -1189,7 +1194,7 @@
             font-size: 14px;
             font-weight: 700;
             color: #334155;
-            letter-spacing: 0.5px;
+            letter-spacing: 0;
             background: rgba(245, 248, 255, 0.68);
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
@@ -1197,7 +1202,7 @@
             z-index: 10;
         }
         .key-projects-title {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: #1a2a4a;
             margin-bottom: 14px;
@@ -1312,8 +1317,8 @@
             width: 22px;
             height: 22px;
             border-radius: 6px;
-            font-size: 10px;
-            font-weight: 900;
+            font-size: 11px;
+            font-weight: 700;
             color: #fff;
             margin-right: 6px;
             flex-shrink: 0;
@@ -1386,7 +1391,7 @@
             margin: 10px 14px 4px;
             padding: 5px 2px;
             cursor: pointer;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
             color: #b8c4d8;
             letter-spacing: 1.8px;
@@ -1426,7 +1431,7 @@
         .home-hero-eyebrow {
             font-size: 11px;
             font-weight: 500;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             color: #1677ff;
             text-transform: uppercase;
             margin-bottom: 10px;
@@ -1449,7 +1454,7 @@
         .home-hero-sub {
             font-size: 13px;
             color: #8f959e;
-            letter-spacing: 0.5px;
+            letter-spacing: 0;
             position: relative;
             z-index: 1;
         }
@@ -1459,7 +1464,7 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 80px;
-            font-weight: 800;
+            font-weight: 700;
             color: rgba(22,119,255,0.06);
             line-height: 1;
             letter-spacing: -4px;
@@ -1472,7 +1477,7 @@
         .home-section-label {
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             color: #94a3b8;
             text-transform: uppercase;
             margin-bottom: 14px;
@@ -1513,8 +1518,8 @@
         .home-stat-card.c-green::before  { background: #059669; }
         .home-stat-card.c-purple::before { background: #7c3aed; }
         .home-stat-num {
-            font-size: 34px;
-            font-weight: 800;
+            font-size: 32px;
+            font-weight: 700;
             line-height: 1;
             margin-bottom: 5px;
             letter-spacing: -0.5px;
@@ -1525,7 +1530,7 @@
         .home-stat-card.c-green  .home-stat-num { color: #059669; }
         .home-stat-card.c-purple .home-stat-num { color: #7c3aed; }
         .home-stat-label { font-size: 12px; color: #64748b; font-weight: 600; }
-        .home-stat-sub   { font-size: 10px; color: #b0bec5; margin-top: 3px; }
+        .home-stat-sub   { font-size: 11px; color: #b0bec5; margin-top: 3px; }
         /* 月份卡片 */
         .home-months-grid {
             display: grid;
@@ -1554,7 +1559,7 @@
         .home-month-card.m02 .home-month-card-header { background: #fff8f0; }
         .home-month-card.m03 .home-month-card-header { background: #f0fff8; }
         .home-month-num {
-            font-size: 10px; font-weight: 500; letter-spacing: 1.5px;
+            font-size: 11px; font-weight: 500; letter-spacing: 1px;
             color: #8f959e; text-transform: uppercase;
             margin-bottom: 5px; position: relative; z-index: 1;
         }
@@ -1574,7 +1579,7 @@
             font-size: 22px; font-weight: 700; color: #1f2329;
             line-height: 1; margin-bottom: 3px; letter-spacing: -0.5px;
         }
-        .home-month-metric-key { font-size: 10px; color: #8f959e; }
+        .home-month-metric-key { font-size: 11px; color: #8f959e; }
         .home-month-enter {
             display: flex; align-items: center; justify-content: space-between;
             padding: 8px 12px; border-radius: 8px;
@@ -1714,8 +1719,8 @@
         .poster-brand-logo {
             width: 24px; height: 24px; border-radius: 6px; overflow: hidden; flex-shrink: 0;
         }
-        .poster-brand-name { font-size: 12px; font-weight: 700; color: white; letter-spacing: 0.3px; flex: 1; }
-        .poster-brand-date { font-size: 10px; color: rgba(255,255,255,0.35); }
+        .poster-brand-name { font-size: 12px; font-weight: 700; color: white; letter-spacing: 0; flex: 1; }
+        .poster-brand-date { font-size: 11px; color: rgba(255,255,255,0.35); }
         /* Hero 图标区 */
         .poster-hero {
             background: linear-gradient(160deg, #0e2060 0%, #1a3a8f 50%, #0d2a6e 100%);
@@ -1741,7 +1746,7 @@
             display: inline-flex; align-items: center; gap: 5px;
             background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
             border-radius: 20px; padding: 4px 12px;
-            font-size: 10px; font-weight: 700; color: #60c0ff;
+            font-size: 11px; font-weight: 700; color: #60c0ff;
             letter-spacing: 1px; text-transform: uppercase; position: relative; z-index: 1;
         }
         .poster-hero-tag::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #1677ff; }
@@ -1750,8 +1755,8 @@
             padding: 22px 20px 18px; background: #0b1735;
         }
         .poster-headline {
-            font-size: 22px; font-weight: 800; line-height: 1.4;
-            color: white; margin-bottom: 14px; letter-spacing: 0.2px;
+            font-size: 22px; font-weight: 700; line-height: 1.4;
+            color: white; margin-bottom: 14px; letter-spacing: 0;
         }
         .poster-headline em { color: #60c0ff; font-style: normal; }
         .poster-divider {
@@ -1783,7 +1788,7 @@
         .poster-footer-badge {
             background: rgba(22,119,255,0.2); border: 1px solid rgba(22,119,255,0.35);
             border-radius: 10px; padding: 3px 8px;
-            font-size: 9px; font-weight: 700; color: #60a5fa; letter-spacing: 0.5px;
+            font-size: 11px; font-weight: 700; color: #60a5fa; letter-spacing: 0;
         }
 
         .download-btn {
@@ -1798,7 +1803,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            letter-spacing: 0.5px;
+            letter-spacing: 0;
         }
         .download-btn:hover {
             background: rgba(255,255,255,0.13);
@@ -1943,7 +1948,7 @@
             top: 50%;
             transform: translateY(-50%);
             color: #b0bec5;
-            font-size: 15px;
+            font-size: 16px;
         }
 
         .filter-group {
@@ -2143,13 +2148,13 @@
             font-size: 11px !important;
             font-weight: 500 !important;
             text-transform: none !important;
-            letter-spacing: 0.2px !important;
+            letter-spacing: 0 !important;
             color: #8f959e !important;
             margin-bottom: 10px !important;
         }
         .stat-value {
             font-size: 36px !important;
-            font-weight: 800 !important;
+            font-weight: 700 !important;
             letter-spacing: -1px !important;
         }
         .stat-unit {
@@ -2234,7 +2239,7 @@
             color: #94a3b8 !important;
             -webkit-text-fill-color: #94a3b8 !important;
             background: none !important;
-            letter-spacing: 0.3px !important;
+            letter-spacing: 0 !important;
         }
 
         /* 分割线 */
@@ -2253,7 +2258,7 @@
             align-items: center !important;
             gap: 7px !important;
             margin: 12px 14px 5px !important;
-            font-size: 10px !important;
+            font-size: 11px !important;
             font-weight: 700 !important;
             color: #b8c4d8 !important;
             letter-spacing: 1.8px !important;
@@ -2359,7 +2364,7 @@
             font-size: 12px !important;
             font-weight: 600 !important;
             color: #64748b !important;
-            letter-spacing: 0.2px !important;
+            letter-spacing: 0 !important;
             text-transform: none !important;
             background: rgba(22,119,255,0.04) !important;
             border: 1px solid rgba(22,119,255,0.07) !important;
@@ -2375,7 +2380,7 @@
         }
         /* 年份箭头移到最右 */
         .nav-year-arrow {
-            font-size: 9px !important;
+            font-size: 11px !important;
             margin-left: auto !important;
             color: #94a3b8 !important;
             transition: transform 0.25s !important;
@@ -2384,7 +2389,7 @@
         .nav-year-body .nav-item {
             margin-left: 18px !important;
             margin-right: 8px !important;
-            font-size: 12.5px !important;
+            font-size: 13px !important;
         }
         /* ════════════════════════════════════════════════ */
 
@@ -2429,7 +2434,7 @@
             .container { height: auto; min-height: 100vh; }
             .sidebar { width: 220px; min-width: 220px; }
             .main-content { padding: 30px 25px; }
-            .header h1 { font-size: 26px; }
+            .header h1 { font-size: 24px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .stat-value { font-size: 28px; }
             .features-table { font-size: 13px; }
@@ -2480,7 +2485,7 @@
         @media (max-width: 480px) {
             .stats-grid { grid-template-columns: 1fr; }
             .header h1 { font-size: 18px; }
-            .section-title { font-size: 15px; }
+            .section-title { font-size: 16px; }
             .features-table { min-width: 500px; }
             .action-btn { display: inline-block; margin-bottom: 8px; }
         }
@@ -2502,7 +2507,7 @@
             margin: 1px 8px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 13.5px;
+            font-size: 14px;
             color: #646a73;
             font-weight: 400;
             transition: background 0.15s, color 0.15s;
@@ -2535,7 +2540,7 @@
         .nav-sub-list.open::-webkit-scrollbar { width: 4px; }
         .nav-sub-list.open::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 2px; }
         .nav-sub-year-label {
-            font-size: 10px;
+            font-size: 11px;
             color: #bbbfc4;
             font-weight: 500;
             letter-spacing: 0.8px;
@@ -2556,7 +2561,7 @@
         .nav-sub-item:hover { background: #f2f3f5; color: #1f2329; }
         .nav-sub-item.active { color: #1677ff; font-weight: 500; background: #f0f7ff; }
         .nav-sub-tag {
-            font-size: 10px;
+            font-size: 11px;
             padding: 1px 5px;
             border-radius: 4px;
             background: #e8f7f0;
@@ -2578,7 +2583,7 @@
             border-top: none;
         }
         .sidebar-main-nav .nav-item-ai:hover { background: #2d2863; }
-        .sidebar-main-nav .nav-item-ai-text { font-size: 13.5px; font-weight: 500; color: #c4b5fd; }
+        .sidebar-main-nav .nav-item-ai-text { font-size: 14px; font-weight: 500; color: #c4b5fd; }
 
         /* ===== 新版纯文本侧边栏 snav-* ===== */
         .snav-item {
@@ -2606,7 +2611,7 @@
             align-items: center;
             padding: 9px 20px;
             margin: 4px 0 0;
-            font-size: 13.5px;
+            font-size: 14px;
             color: #a78bfa;
             cursor: pointer;
             border-left: 3px solid transparent;
@@ -4873,22 +4878,46 @@
 
         // 月度数据配置（示例：可逐步迁移现有月份）
         const MONTHLY_DATA = {
-            // 示例：2026年3月（数据驱动渲染）
             '2026-03': {
                 year: 2026,
                 month: 3,
                 stats: {
-                    brd: 25,      // BRD评审通过
-                    prd: 68,      // PRD交付需求
-                    dev: 72,      // 研发上线
-                    features: 15  // 上线重要功能
+                    brd: 0,
+                    prd: 0,
+                    dev: 0,
+                    features: 30
                 },
                 features: [
-                    { category: '商旅', name: '智能行程规划助手', owner: '刘小莉', desc: 'AI自动规划最优差旅行程，减少人工操作时间', prdId: 'R-QYJ-640001' },
-                    { category: '酒店', name: '协议酒店动态比价', owner: '谢思明', desc: '实时对比协议价与公开价，确保企业最优价格', prdId: 'R-QYJ-640002' },
-                    { category: '用车', name: '绿色出行碳积分', owner: '梁明', desc: '记录新能源用车数据，支持企业ESG报告生成', prdId: 'R-QYJ-640003' },
-                    { category: '财税（票据）', name: '电子发票自动归集', owner: '刘奎', desc: '自动抓取邮箱发票，智能识别并关联报销单', prdId: 'R-QYJ-640004' },
-                    { category: '管控（商旅）', name: '超标预订智能提醒', owner: '徐佳锋', desc: '预订时实时校验差标，超标前主动预警提示', prdId: 'R-QYJ-640005' }
+                    { category: '商旅', name: '【联友】国内机票分销API按订单自动开票', owner: '李冉', desc: '国内机票分销API下单按订单自动开票', prdId: 'R-QYJ-629766' },
+                    { category: '商旅', name: '海外酒店订单变价兜底与兜底失败价格隐藏', owner: '谢思明', desc: '见PRD', prdId: 'R-QYJ-644920' },
+                    { category: '商旅', name: '【数电火车票】接入12306账密开票方式', owner: '刘正秀', desc: '支持存储账号密码去申请开票，by企业', prdId: 'R-QYJ-629803' },
+                    { category: '商旅', name: '【SSC】客户商旅预存/授信账户划转线上化-二期预存转授信', owner: '关珺丹', desc: '支持预存转授信的账户切换，以及账户余额的划转', prdId: 'R-QYJ-560410' },
+                    { category: '出行', name: '【成都市总工会】职工普惠平台对接滴滴企业版个垫用车相关需求', owner: '梁明', desc: '企业支付调用客户收银台', prdId: 'R-QYJ-500746' },
+                    { category: '出行', name: '企业级申请单上传点不可达优化方案', owner: '李品谚', desc: '企业级申请单上传起终点存在部分司机不可到达的情况，现基于对该情况进行优化处理', prdId: 'R-QYJ-471198' },
+                    { category: '商旅', name: '小桔国旅收、支两条线改造专项', owner: '程珊', desc: '商旅预存账户的收款账号调整', prdId: 'R-QYJ-629371' },
+                    { category: '出行', name: '满帮集团-差旅用车浮动天数管控支持仅向前或仅向后浮动X天', owner: '徐佳锋', desc: '前几后几', prdId: 'R-QYJ-549103' },
+                    { category: '商旅', name: '【积分商城】商旅用户新手行为任务引导', owner: '唐姝婧', desc: '商旅增加行为任务', prdId: 'R-QYJ-628115' },
+                    { category: '出行', name: '网约车发票抵扣政策变更合规性改造', owner: '刘奎', desc: '网约车发票抵扣正常变更合规性改造', prdId: 'R-QYJ-638596' },
+                    { category: '商旅', name: '国内机票销售控制模块需求', owner: '李刘新', desc: '23年国内机票业务支持了多OFFICE出票，梳理了完整的OFFICE使用路径和场景', prdId: 'R-QYJ-623837' },
+                    { category: '商旅', name: '三亚澜海预存转T+1结算', owner: '关珺丹', desc: '火车票澜海T+1结算', prdId: 'R-QYJ-612036' },
+                    { category: '商旅', name: '收益-贴差标产品扩档位及复制标的', owner: '陈博', desc: '见PRD', prdId: 'R-QYJ-628426' },
+                    { category: '商旅', name: '【中信证券】国内机票取消出行人短信通知', owner: '李冉', desc: '国内机票短信通知开关，可定制出退改成功/失败短信及航变类短信通知是否发送', prdId: 'R-QYJ-640280' },
+                    { category: '商旅', name: 'onepage酒店订单详情页（新版）', owner: '王振祥', desc: '订单详情页改版', prdId: 'R-QYJ-608291' },
+                    { category: '商旅', name: '【SSC-供应链】金石系统酒店对账应付模块相关', owner: '关珺丹', desc: '优化酒店供应商对账-应付模块功能', prdId: 'R-QYJ-617101' },
+                    { category: '出行', name: '【快手】积分商城对接', owner: '吴华宇', desc: 'api对接', prdId: 'R-QYJ-627305' },
+                    { category: '商旅', name: '【中信证券】国内酒店分销API按订单自动开票', owner: '谢思明', desc: '国内酒店分销API订单支持按订单自动开票', prdId: 'R-QYJ-632200' },
+                    { category: '公共', name: '生态模式优化解绑后子账户自动解冻功能', owner: '谢卓江', desc: '支持自动解冻', prdId: 'R-QYJ-625953' },
+                    { category: '商旅', name: '【数电行程单】线下客服同票号改签数电能力增加判断逻辑', owner: '刘奎', desc: '线下客服同票号改签数电能力增加判断逻辑', prdId: 'R-QYJ-624566' },
+                    { category: '出行', name: '企业级订单车牌号不一致-订单快照问题', owner: '于永久', desc: '司机车牌号信息存储快照', prdId: 'R-QYJ-624825' },
+                    { category: '商旅', name: '查询两舱占比&平均票价', owner: '-', desc: '-', prdId: 'R-QYJ-649768' },
+                    { category: '公共', name: '【中兴通讯】人员批量处理接口中支持传入国家城市编码、公司业务编码', owner: '谢朱莉', desc: '人员接口拉齐行政区划码和公司业务编码', prdId: 'R-QYJ-626037' },
+                    { category: '公共', name: '线索表中需要新增一个字段，是否IM线索', owner: '唐姝婧', desc: '线索表中增加字段', prdId: 'R-QYJ-619394' },
+                    { category: '商旅', name: '【今日头条】酒店静态房型信息内增加携程房型ID', owner: '谢思明', desc: '静态房型增加携程房型ID返回', prdId: 'R-QYJ-597472' },
+                    { category: '出行', name: '轻享适配预约单', owner: '孟久扬', desc: '轻享支持预约单', prdId: 'R-QYJ-571445' },
+                    { category: '商旅', name: '【滴滴好价】账号活动价格存储支持可配置化', owner: '陈博', desc: '见PRD', prdId: 'R-QYJ-610416' },
+                    { category: '出行', name: '企业级客户用车商旅明细迭代', owner: '-', desc: '-', prdId: 'R-QYJ-642926' },
+                    { category: '商旅', name: '瑞斯康达商旅机酒火的差旅单转化率', owner: '-', desc: '-', prdId: 'R-QYJ-645680' },
+                    { category: '商旅', name: '【中电科金仓】金额变动通知接口新增金额字段', owner: '谢朱莉', desc: '金额变动接口新增字段', prdId: 'R-QYJ-622951' }
                 ]
             }
         };
