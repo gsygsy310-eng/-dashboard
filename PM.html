@@ -19,6 +19,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
             font-feature-settings: 'cv02', 'cv03', 'cv04';
             font-variant-numeric: tabular-nums;
+            line-height: 1.6;
             background: #f5f7fa;
             min-height: 100vh;
             padding: 0;
@@ -55,30 +56,17 @@
         .sidebar-nav-scroll .nav-section:last-child { margin-bottom: 8px; }
         .sidebar-year-ring {
             flex-shrink: 0;
-            margin: 0 12px 14px;
-            padding: 16px 14px 14px;
-            border-radius: 16px;
-            background: linear-gradient(145deg, #ffffff 0%, #eef4ff 100%);
-            border: 1px solid rgba(22,119,255,0.12);
-            box-shadow: 0 2px 12px rgba(22,119,255,0.08),
-                        0 1px 0 rgba(255,255,255,0.9) inset;
+            margin: 0 0 8px;
+            padding: 12px 20px 16px;
             position: relative;
             overflow: hidden;
-            animation: syr-appear 0.5s 0.15s cubic-bezier(0.22,1,0.36,1) both;
+            border-top: 1px solid #f0f0f0;
         }
         @keyframes syr-appear {
             from { opacity:0; transform:translateY(8px); }
             to   { opacity:1; transform:translateY(0); }
         }
-        /* 右上角淡蓝光晕 */
-        .sidebar-year-ring::before {
-            content: '';
-            position: absolute;
-            top: -10px; right: -10px;
-            width: 90px; height: 90px;
-            background: radial-gradient(circle, rgba(22,119,255,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
+        .sidebar-year-ring::before { display: none; }
         .syr-label {
             font-size: 11px;
             font-weight: 600;
@@ -168,9 +156,8 @@
         .logo {
             font-size: 16px;
             font-weight: 600;
-            margin: 0 16px 20px;
-            padding: 0 0 16px;
-            border-bottom: 1px solid #f0f0f0;
+            margin: 0 16px 16px;
+            padding: 0 0 0;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -189,7 +176,7 @@
             font-weight: 600;
         }
 
-        .site-title {
+        .site-title { display: none; /* 冗余信息隐藏 */ 
             margin: 0 16px 20px;
             padding: 12px 14px;
             background: #f5f7fa;
@@ -633,11 +620,11 @@
         }
 
         .features-table th {
-            background: #fafafa;
+            background: #f9fafb;
             padding: 12px 16px;
             text-align: left;
             font-weight: 500;
-            color: #8f959e;
+            color: #646a73;
             border-bottom: 1px solid #e5e7eb;
             font-size: 12px;
             letter-spacing: 0;
@@ -666,8 +653,12 @@
             transition: background 0.15s ease;
         }
 
+        .features-table tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+
         .features-table tbody tr:hover {
-            background: #f9fafb;
+            background: #f5f6f7;
         }
 
         .category-tag {
@@ -680,48 +671,48 @@
         }
 
         .category-tag.flight {
-            background: #e8f3ff;
-            color: #1677ff;
+            background: #eff6ff;
+            color: #3b82f6;
         }
 
         .category-tag.hotel {
-            background: #f0e8ff;
-            color: #7c3aed;
+            background: #f5f3ff;
+            color: #8b5cf6;
         }
 
         .category-tag.train {
-            background: #e8fff4;
-            color: #059669;
+            background: #f0fdf4;
+            color: #22c55e;
         }
 
         .category-tag.car {
-            background: #fff8e6;
-            color: #d97706;
+            background: #fffbeb;
+            color: #f59e0b;
         }
 
         .category-tag.finance {
-            background: #e6fffb;
-            color: #0d9488;
+            background: #f0fdfa;
+            color: #14b8a6;
         }
 
         .category-tag.control {
-            background: #f3f0ff;
-            color: #6d28d9;
+            background: #faf5ff;
+            color: #a855f7;
         }
 
         .category-tag.shanglv {
-            background: #e6f4ff;
-            color: #0958d9;
+            background: #eff6ff;
+            color: #3b82f6;
         }
 
         .category-tag.common {
-            background: #f0fff0;
-            color: #389e0d;
+            background: #f0fdf4;
+            color: #22c55e;
         }
 
         .category-tag.mobility {
-            background: #fff8e6;
-            color: #d46b08;
+            background: #fffbeb;
+            color: #f97316;
         }
 
         .action-btn {
@@ -746,13 +737,13 @@
         }
 
         .btn-secondary {
-            background: #f0f5ff;
-            color: #1677ff;
-            border: 1px solid rgba(22, 119, 255, 0.15);
+            background: #f5f6f7;
+            color: #374151;
+            border: 1px solid #e5e7eb;
         }
 
         .btn-secondary:hover {
-            background: #e0edff;
+            background: #e8eaed;
             transform: translateY(-2px);
         }
 
@@ -775,22 +766,21 @@
         .btn-ai-star { display: none; }
         /* 含双按钮的 td：flex 等宽排列 */
         td:has(.btn-ai-poster) {
-            display: flex !important;
-            gap: 6px !important;
-            align-items: center !important;
-            padding: 6px 10px !important;
             white-space: nowrap !important;
-            width: 176px !important;
-            min-width: 176px !important;
+            width: auto !important;
+            min-width: 160px !important;
         }
         td:has(.btn-ai-poster) .action-btn {
-            flex: 1 !important;
-            margin-right: 0 !important;
-            text-align: center !important;
-            justify-content: center !important;
+            display: inline-block !important;
+            margin-right: 6px !important;
+            margin-bottom: 0 !important;
             white-space: nowrap !important;
-            padding-left: 10px !important;
-            padding-right: 10px !important;
+            padding-left: 12px !important;
+            padding-right: 12px !important;
+            vertical-align: middle !important;
+        }
+        td:has(.btn-ai-poster) .action-btn:last-child {
+            margin-right: 0 !important;
         }
         .btn-beta-tag {
             position: absolute;
@@ -813,23 +803,23 @@
         .guide-section {
             background: white;
             padding: 32px;
-            border-radius: 16px;
-            box-shadow: 0 2px 14px rgba(22, 119, 255, 0.07);
-            border: 1px solid rgba(22, 119, 255, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
         }
 
         .guide-item {
-            margin-bottom: 20px;
-            padding: 22px 24px;
-            background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
-            border-radius: 12px;
+            margin-bottom: 16px;
+            padding: 20px 24px;
+            background: #f9fafb;
+            border-radius: 10px;
             border-left: 4px solid #1677ff;
-            transition: all 0.3s ease;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
         }
 
         .guide-item:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 16px rgba(22, 119, 255, 0.10);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
         }
 
         .guide-item h3 {
@@ -860,9 +850,9 @@
             gap: 6px;
             border: 1px solid rgba(0,0,0,0.06);
         }
-        .intel-summary-card.s-competitor { background: linear-gradient(135deg, #fff4f0 0%, #fff 100%); border-left: 3px solid #ff6b3d; }
-        .intel-summary-card.s-industry   { background: linear-gradient(135deg, #f0f5ff 0%, #fff 100%); border-left: 3px solid #1677ff; }
-        .intel-summary-card.s-voice      { background: linear-gradient(135deg, #f0fff6 0%, #fff 100%); border-left: 3px solid #10b981; }
+        .intel-summary-card.s-competitor { background: #fff; border-left: 3px solid #ff6b3d; }
+        .intel-summary-card.s-industry   { background: #fff; border-left: 3px solid #1677ff; }
+        .intel-summary-card.s-voice      { background: #fff; border-left: 3px solid #10b981; }
         .intel-summary-card .s-label {
             font-size: 11px;
             font-weight: 600;
@@ -1039,7 +1029,7 @@
         .rating-count-text { font-size: 11px; color: #aaa; }
         .app-notes-box { font-size: 12px; color: #666; background: #f9f9f9; padding: 7px 10px; border-radius: 6px; margin-bottom: 12px; border-left: 3px solid #e0e0e0; line-height: 1.5; }
         .appstore-section-label { font-size: 11px; font-weight: 600; color: #bbb; letter-spacing: 0; margin-bottom: 8px; }
-        .screenshot-strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 12px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+        .screenshot-strip { display: flex; gap: 8px; overflow-x: scroll; padding-bottom: 8px; margin-bottom: 12px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
         .screenshot-strip::-webkit-scrollbar { height: 3px; }
         .screenshot-strip::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 2px; }
         .screenshot-strip::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
@@ -1056,22 +1046,24 @@
         .competitor-section {
             background: white;
             padding: 24px;
-            border-radius: 16px;
-            box-shadow: 0 2px 14px rgba(22, 119, 255, 0.07);
-            border: 1px solid rgba(22, 119, 255, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
             display: none;
         }
         .competitor-section.active {
             display: block;
+            animation: panel-fadein 0.18s ease;
         }
 
         .competitor-card {
             padding: 16px 20px;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #fff8f5 0%, #ffffff 100%);
-            border-radius: 12px;
+            margin-bottom: 10px;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #f0f0f0;
             border-left: 4px solid #ff6b3d;
-            transition: all 0.2s ease;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
             cursor: pointer;
             text-decoration: none;
             display: block;
@@ -1080,24 +1072,24 @@
         .competitor-card:last-child { margin-bottom: 0; }
 
         .competitor-card:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 16px rgba(255, 107, 61, 0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .competitor-card.industry {
-            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            background: #ffffff;
             border-left-color: #1677ff;
         }
         .competitor-card.industry:hover {
-            box-shadow: 0 4px 16px rgba(22, 119, 255, 0.12);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .competitor-card.user-voice {
-            background: linear-gradient(135deg, #f0fff4 0%, #ffffff 100%);
+            background: #ffffff;
             border-left-color: #10b981;
         }
         .competitor-card.user-voice:hover {
-            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.12);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         /* 卡片头部：标题 + 重要标记 */
@@ -1120,9 +1112,9 @@
             font-size: 11px;
             font-weight: 700;
             color: #fff;
-            background: linear-gradient(135deg, #ff6b3d, #ff3d00);
+            background: #ff6b3d;
             padding: 2px 8px;
-            border-radius: 10px;
+            border-radius: 4px;
             white-space: nowrap;
         }
 
@@ -1163,6 +1155,41 @@
             overflow: hidden;
             transition: all 0.2s;
         }
+        /* 竞品卡片内"销售启示"提示框 */
+        .card-insight {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 7px 12px;
+            background: #fffbf0;
+            border-left: 3px solid #f59e0b;
+            border-radius: 6px;
+            color: #92400e;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .card-insight-green {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 7px 12px;
+            background: #f0fdf4;
+            border-left: 3px solid #22c55e;
+            border-radius: 6px;
+            color: #166534;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .card-insight-pink {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 7px 12px;
+            background: #fdf2f8;
+            border-left: 3px solid #ec4899;
+            border-radius: 6px;
+            color: #9d174d;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
         .competitor-card:hover p {
             -webkit-line-clamp: unset;
             overflow: visible;
@@ -1171,35 +1198,30 @@
         /* 攻坚项目概览 */
         .key-projects {
             margin-bottom: 28px;
-            position: relative;
-            border-radius: 14px;
+            border-radius: 12px;
             overflow: hidden;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
         }
         .key-projects-grid {
-            filter: blur(3px);
-            opacity: 0.5;
-            pointer-events: none;
-            user-select: none;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            padding: 16px;
         }
-        .key-projects-title {
-            opacity: 0.45;
+        .key-projects-placeholder {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 32px;
+            color: #8f959e;
         }
-        .key-projects::after {
-            content: '🤖  AI 智能分析功能正在开发中…';
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: 700;
-            color: #334155;
-            letter-spacing: 0;
-            background: rgba(245, 248, 255, 0.68);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            border-radius: 14px;
-            z-index: 10;
+        .key-projects-placeholder-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .key-projects-placeholder-text {
+            font-size: 13px;
+            font-weight: 500;
         }
         .key-projects-title {
             font-size: 16px;
@@ -1216,7 +1238,7 @@
             width: 4px;
             height: 16px;
             border-radius: 2px;
-            background: linear-gradient(180deg, #1677ff, #7c3aed);
+            background: #1677ff;
         }
         .key-projects-grid {
             display: grid;
@@ -1244,10 +1266,10 @@
             font-weight: 700;
             color: #fff;
         }
-        .kp-card-header.car    { background: linear-gradient(135deg, #f97316, #fb923c); }
-        .kp-card-header.flight { background: linear-gradient(135deg, #1677ff, #3b82f6); }
-        .kp-card-header.hotel  { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
-        .kp-card-header.train  { background: linear-gradient(135deg, #059669, #34d399); }
+        .kp-card-header.car    { background: #f97316; }
+        .kp-card-header.flight { background: #1677ff; }
+        .kp-card-header.hotel  { background: #7c3aed; }
+        .kp-card-header.train  { background: #059669; }
         .kp-card-body {
             padding: 14px;
         }
@@ -1270,10 +1292,10 @@
             border-radius: 3px;
             transition: width 1s ease;
         }
-        .kp-progress-fill.car    { background: linear-gradient(90deg, #f97316, #fb923c); }
-        .kp-progress-fill.flight { background: linear-gradient(90deg, #1677ff, #3b82f6); }
-        .kp-progress-fill.hotel  { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
-        .kp-progress-fill.train  { background: linear-gradient(90deg, #059669, #34d399); }
+        .kp-progress-fill.car    { background: #f97316; }
+        .kp-progress-fill.flight { background: #1677ff; }
+        .kp-progress-fill.hotel  { background: #7c3aed; }
+        .kp-progress-fill.train  { background: #059669; }
         .kp-progress-meta {
             display: flex;
             justify-content: space-between;
@@ -1509,14 +1531,7 @@
             transition: box-shadow 0.2s;
         }
         .home-stat-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.10); }
-        .home-stat-card::before {
-            content: ''; position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-        }
-        .home-stat-card.c-blue::before   { background: #1677ff; }
-        .home-stat-card.c-orange::before { background: #f97316; }
-        .home-stat-card.c-green::before  { background: #059669; }
-        .home-stat-card.c-purple::before { background: #7c3aed; }
+        .home-stat-card::before { display: none; }
         .home-stat-num {
             font-size: 32px;
             font-weight: 700;
@@ -1525,10 +1540,10 @@
             letter-spacing: -0.5px;
             font-variant-numeric: tabular-nums;
         }
-        .home-stat-card.c-blue   .home-stat-num { color: #1677ff; }
-        .home-stat-card.c-orange .home-stat-num { color: #f97316; }
-        .home-stat-card.c-green  .home-stat-num { color: #059669; }
-        .home-stat-card.c-purple .home-stat-num { color: #7c3aed; }
+        .home-stat-card.c-blue   .home-stat-num { color: #1f2329; }
+        .home-stat-card.c-orange .home-stat-num { color: #1f2329; }
+        .home-stat-card.c-green  .home-stat-num { color: #1f2329; }
+        .home-stat-card.c-purple .home-stat-num { color: #1f2329; }
         .home-stat-label { font-size: 12px; color: #64748b; font-weight: 600; }
         .home-stat-sub   { font-size: 11px; color: #b0bec5; margin-top: 3px; }
         /* 月份卡片 */
@@ -1555,16 +1570,16 @@
             border-bottom: 1px solid #f0f0f0;
         }
         .home-month-card-header::after { display: none; }
-        .home-month-card.m01 .home-month-card-header { background: #f0f7ff; }
-        .home-month-card.m02 .home-month-card-header { background: #fff8f0; }
-        .home-month-card.m03 .home-month-card-header { background: #f0fff8; }
+        .home-month-card.m01 .home-month-card-header { background: #f8f9fb; }
+        .home-month-card.m02 .home-month-card-header { background: #f8f9fb; }
+        .home-month-card.m03 .home-month-card-header { background: #f8f9fb; }
         .home-month-num {
             font-size: 11px; font-weight: 500; letter-spacing: 1px;
             color: #8f959e; text-transform: uppercase;
             margin-bottom: 5px; position: relative; z-index: 1;
         }
         .home-month-card.m01 .home-month-num { color: #1677ff; }
-        .home-month-card.m02 .home-month-num { color: #f97316; }
+        .home-month-card.m02 .home-month-num { color: #1677ff; }
         .home-month-card.m03 .home-month-num { color: #059669; }
         .home-month-title {
             font-size: 20px; font-weight: 700; color: #1f2329;
@@ -1602,10 +1617,10 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         .home-quick-btn:hover {
-            border-color: #1677ff; color: #1677ff;
-            background: #f0f5ff;
+            border-color: #b0b8c4; color: #1f2329;
+            background: #f5f6f7;
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(22,119,255,0.12);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
         }
         /* 首页面包屑"首页"可点击 */
         .breadcrumb-home-link {
@@ -1613,23 +1628,6 @@
             transition: opacity 0.15s;
         }
         .breadcrumb-home-link:hover { opacity: 0.7; }
-
-        .intel-update-bar {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #f0f7ff 0%, #f8fbff 100%);
-            border-radius: 10px;
-            margin-bottom: 28px;
-            border: 1px solid rgba(22, 119, 255, 0.10);
-            font-size: 13px;
-            color: #6b7a99;
-        }
-
-        .intel-update-bar strong {
-            color: #1677ff;
-        }
 
         /* 隐藏内容 */
         .content-panel {
@@ -1834,28 +1832,27 @@
         .sidebar-toggle {
             position: absolute;
             top: 20px;
-            right: -15px;
-            width: 30px;
-            height: 30px;
+            right: -14px;
+            width: 28px;
+            height: 28px;
             background: white;
             border-radius: 50%;
-            box-shadow: 0 2px 10px rgba(22, 119, 255, 0.18);
+            box-shadow: 0 1px 6px rgba(0,0,0,0.12);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 10;
-            transition: all 0.3s ease;
-            color: #1677ff;
-            font-size: 14px;
-            font-weight: bold;
-            border: 1px solid rgba(22, 119, 255, 0.15);
+            transition: opacity 0.2s, background 0.2s, color 0.2s;
+            color: #9ca3af;
+            font-size: 12px;
+            border: 1px solid #e5e7eb;
+            opacity: 0;
         }
-
+        .sidebar:hover .sidebar-toggle { opacity: 1; }
         .sidebar-toggle:hover {
-            background: #1677ff;
-            color: white;
-            transform: scale(1.1);
+            background: #f3f4f6;
+            color: #374151;
         }
 
         .sidebar {
@@ -1880,13 +1877,13 @@
             align-items: center;
             gap: 8px;
             font-size: 13px;
-            color: #8899aa;
+            color: #8f959e;
             margin-bottom: 20px;
             padding: 10px 18px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(22, 119, 255, 0.06);
-            border: 1px solid rgba(22, 119, 255, 0.07);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
         }
 
         .breadcrumb-item {
@@ -1910,8 +1907,8 @@
             padding: 18px 20px;
             border-radius: 12px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(22, 119, 255, 0.06);
-            border: 1px solid rgba(22, 119, 255, 0.07);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
@@ -1927,12 +1924,12 @@
         .search-box input {
             width: 100%;
             padding: 9px 15px 9px 40px;
-            border: 1.5px solid #e0eaff;
+            border: 1.5px solid #e5e7eb;
             border-radius: 8px;
             font-size: 14px;
-            transition: all 0.3s ease;
-            background: #f8fbff;
-            color: #2c3e50;
+            transition: all 0.2s ease;
+            background: #f9fafb;
+            color: #1f2329;
         }
 
         .search-box input:focus {
@@ -1965,22 +1962,29 @@
 
         .filter-select {
             padding: 7px 12px;
-            border: 1.5px solid #e0eaff;
+            border: 1.5px solid #e5e7eb;
             border-radius: 8px;
             font-size: 13px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            background: #f8fbff;
-            color: #2c3e50;
+            transition: all 0.2s ease;
+            background: #f9fafb;
+            color: #1f2329;
         }
 
         .filter-select:focus {
             outline: none;
             border-color: #1677ff;
+            box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.08);
         }
 
         .filter-select:hover {
-            border-color: #90bcff;
+            border-color: #b0b8c4;
+        }
+
+        .filter-select.has-value {
+            background: #e8f4ff;
+            border-color: #1677ff;
+            color: #0958d9;
         }
 
         /* Toast 提示 */
@@ -2167,17 +2171,17 @@
 
         /* 4. 搜索区 + 表格区视觉合并为一体 */
         .filter-section {
-            border-radius: 16px 16px 0 0 !important;
+            border-radius: 12px 12px 0 0 !important;
             margin-bottom: 0 !important;
-            border-bottom: 1px solid #f0f5ff !important;
-            box-shadow: 0 -2px 14px rgba(22,119,255,0.05) !important;
+            border-bottom: 1px solid #f0f0f0 !important;
+            box-shadow: none !important;
             padding: 12px 24px !important;
         }
         .features-section {
-            border-radius: 0 0 16px 16px !important;
+            border-radius: 0 0 12px 12px !important;
             border-top: none !important;
             padding-top: 0 !important;
-            box-shadow: 0 6px 20px rgba(22,119,255,0.08) !important;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06) !important;
             padding: 0 32px 28px !important;
         }
 
@@ -2187,7 +2191,7 @@
             font-weight: 700 !important;
             padding: 18px 0 14px !important;
             margin-bottom: 4px !important;
-            border-bottom: 1px solid #f0f5ff !important;
+            border-bottom: 1px solid #f0f0f0 !important;
             gap: 0 !important;
         }
         .section-title::before {
@@ -2223,7 +2227,7 @@
         }
 
         /* site-title 变成紧凑副标题 */
-        .site-title {
+        .site-title { display: none; /* 冗余信息隐藏 */ 
             margin: 0 20px 0 !important;
             padding: 0 !important;
             background: none !important;
@@ -2477,7 +2481,7 @@
             .nav-item { padding: 11px 16px; margin: 2px 10px; font-size: 13px; }
             .nav-title { margin: 0 16px 10px; }
             .logo { margin: 0 16px 30px; padding-bottom: 16px; }
-            .site-title { margin: 0 12px 20px; padding: 10px 12px; }
+            .site-title { display: none; /* 冗余信息隐藏 */  margin: 0 12px 20px; padding: 10px 12px; }
             .site-title-text { font-size: 12px; }
         }
 
@@ -2561,12 +2565,10 @@
         .nav-sub-item:hover { background: #f2f3f5; color: #1f2329; }
         .nav-sub-item.active { color: #1677ff; font-weight: 500; background: #f0f7ff; }
         .nav-sub-tag {
-            font-size: 11px;
-            padding: 1px 5px;
-            border-radius: 4px;
-            background: #e8f7f0;
-            color: #059669;
+            font-size: 10px;
+            color: #10b981;
             font-weight: 500;
+            margin-left: 2px;
         }
         /* AI 探索特殊项 */
         .sidebar-main-nav .nav-item-ai {
@@ -2620,6 +2622,31 @@
         }
         .snav-ai:hover { background: #f5f3ff; color: #7c3aed; border-left-color: #a78bfa; }
         .snav-ai.active { color: #7c3aed; font-weight: 500; border-left-color: #7c3aed; background: #f5f3ff; }
+
+        /* ── 极简年度进度 ── */
+        .syr-mini-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+        .syr-mini-year { font-size: 11px; color: #b0b8c4; font-weight: 500; }
+        .syr-mini-pct { font-size: 13px; font-weight: 600; color: #1677ff; }
+        .syr-mini-bar-wrap { height: 3px; background: #f0f0f0; border-radius: 2px; margin-bottom: 12px; overflow: hidden; }
+        .syr-mini-bar { height: 100%; background: #1677ff; border-radius: 2px; width: 0%; transition: width 1.6s cubic-bezier(0.16,1,0.3,1); }
+        .syr-mini-stats { display: flex; justify-content: space-between; }
+        .syr-mini-stat { text-align: center; }
+        .syr-mini-val { font-size: 13px; font-weight: 600; color: #374151; line-height: 1; margin-bottom: 3px; }
+        .syr-mini-key { font-size: 11px; color: #b0b8c4; font-weight: 400; }
+
+        /* ── 面板切换淡入动画 ── */
+        @keyframes panel-fadein {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .content-panel.active { animation: panel-fadein 0.18s ease; }
+
+        /* ── 自定义滚动条 ── */
+        .main-content::-webkit-scrollbar { width: 6px; }
+        .main-content::-webkit-scrollbar-track { background: transparent; }
+        .main-content::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+        .main-content::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+        .main-content { scrollbar-width: thin; scrollbar-color: #d1d5db transparent; }
     </style>
 </head>
 <body>
@@ -2655,7 +2682,6 @@
                     <svg class="snav-chevron" id="monthly-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 5L6 7L8 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <div class="nav-sub-list" id="nav-monthly-list">
-                    <div class="nav-sub-year-label">2026</div>
                     <div class="nav-sub-item" onclick="showPanel('2026-03')" id="navitem-2026-03">3月<span class="nav-sub-tag">最新</span></div>
                     <div class="nav-sub-item" onclick="showPanel('2026-02')" id="navitem-2026-02">2月</div>
                     <div class="nav-sub-item" onclick="showPanel('2026-01')" id="navitem-2026-01">1月</div>
@@ -2678,41 +2704,17 @@
             </nav>
             </div><!-- /sidebar-nav-scroll -->
 
-            <!-- 年度进度环 -->
+            <!-- 年度进度（极简版） -->
             <div class="sidebar-year-ring">
-                <div class="syr-label">年度进度</div>
-                <div class="syr-ring-wrap">
-                    <svg class="syr-svg" id="syrSvg" viewBox="0 0 96 96">
-                        <defs>
-                            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%"   stop-color="#1677ff"/>
-                                <stop offset="60%"  stop-color="#4096ff"/>
-                                <stop offset="100%" stop-color="#7c3aed"/>
-                            </linearGradient>
-                        </defs>
-                        <circle class="syr-track"    cx="48" cy="48" r="36"/>
-                        <circle class="syr-progress" cx="48" cy="48" r="36" id="syrArc"/>
-                        <!-- 月份点由 JS 动态注入 -->
-                    </svg>
-                    <div class="syr-inner">
-                        <span class="syr-year-tag">2026</span>
-                        <span class="syr-pct" id="syrPct">0</span>
-                        <span class="syr-pct-sign">%</span>
-                    </div>
+                <div class="syr-mini-top">
+                    <span class="syr-mini-year">2026</span>
+                    <span class="syr-mini-pct"><span id="syrPct">—</span>%</span>
                 </div>
-                <div class="syr-stats">
-                    <div class="syr-stat">
-                        <div class="syr-stat-val hi" id="syrWeek">—</div>
-                        <div class="syr-stat-key">当前周</div>
-                    </div>
-                    <div class="syr-stat">
-                        <div class="syr-stat-val" id="syrElapsed">—</div>
-                        <div class="syr-stat-key">已过天</div>
-                    </div>
-                    <div class="syr-stat">
-                        <div class="syr-stat-val" id="syrDays">—</div>
-                        <div class="syr-stat-key">剩余天</div>
-                    </div>
+                <div class="syr-mini-bar-wrap"><div class="syr-mini-bar" id="syrBar"></div></div>
+                <div class="syr-mini-stats">
+                    <div class="syr-mini-stat"><div class="syr-mini-val" id="syrWeek">—</div><div class="syr-mini-key">当前周</div></div>
+                    <div class="syr-mini-stat"><div class="syr-mini-val" id="syrElapsed">—</div><div class="syr-mini-key">已过天</div></div>
+                    <div class="syr-mini-stat"><div class="syr-mini-val" id="syrDays">—</div><div class="syr-mini-key">剩余天</div></div>
                 </div>
             </div>
         </div>
@@ -2808,7 +2810,7 @@
                                         <div class="home-month-metric-key">重要功能</div>
                                     </div>
                                 </div>
-                                <div class="home-month-enter" style="color:#f97316;background:#fff7ed;border-color:#fed7aa;"><span>进入 2月月报</span><span>→</span></div>
+                                <div class="home-month-enter"><span>进入 2月月报</span><span>→</span></div>
                             </div>
                         </div>
                         <div class="home-month-card m03 disabled">
@@ -3418,61 +3420,9 @@
                 <div class="key-projects">
                     <div class="key-projects-title">攻坚项目概览</div>
                     <div class="key-projects-grid">
-                        <!-- 用车 -->
-                        <div class="kp-card">
-                            <div class="kp-card-header car">
-                                <span class="kp-card-icon">🚗</span>
-                                <span class="kp-card-biz">用车</span>
-                                <span class="kp-status doing">进行中</span>
-                            </div>
-                            <div class="kp-card-body">
-                                <div class="kp-project-name">待填写攻坚项目</div>
-                                <div class="kp-progress-bar"><div class="kp-progress-fill" style="width:0%"></div></div>
-                                <div class="kp-desc">请填写项目描述</div>
-                                <div class="kp-pm">PM：待填写</div>
-                            </div>
-                        </div>
-                        <!-- 机票 -->
-                        <div class="kp-card">
-                            <div class="kp-card-header flight">
-                                <span class="kp-card-icon">✈️</span>
-                                <span class="kp-card-biz">机票</span>
-                                <span class="kp-status doing">进行中</span>
-                            </div>
-                            <div class="kp-card-body">
-                                <div class="kp-project-name">待填写攻坚项目</div>
-                                <div class="kp-progress-bar"><div class="kp-progress-fill" style="width:0%"></div></div>
-                                <div class="kp-desc">请填写项目描述</div>
-                                <div class="kp-pm">PM：待填写</div>
-                            </div>
-                        </div>
-                        <!-- 酒店 -->
-                        <div class="kp-card">
-                            <div class="kp-card-header hotel">
-                                <span class="kp-card-icon">🏨</span>
-                                <span class="kp-card-biz">酒店</span>
-                                <span class="kp-status doing">进行中</span>
-                            </div>
-                            <div class="kp-card-body">
-                                <div class="kp-project-name">待填写攻坚项目</div>
-                                <div class="kp-progress-bar"><div class="kp-progress-fill" style="width:0%"></div></div>
-                                <div class="kp-desc">请填写项目描述</div>
-                                <div class="kp-pm">PM：待填写</div>
-                            </div>
-                        </div>
-                        <!-- 火车票 -->
-                        <div class="kp-card">
-                            <div class="kp-card-header train">
-                                <span class="kp-card-icon">🚄</span>
-                                <span class="kp-card-biz">火车票</span>
-                                <span class="kp-status doing">进行中</span>
-                            </div>
-                            <div class="kp-card-body">
-                                <div class="kp-project-name">待填写攻坚项目</div>
-                                <div class="kp-progress-bar"><div class="kp-progress-fill" style="width:0%"></div></div>
-                                <div class="kp-desc">请填写项目描述</div>
-                                <div class="kp-pm">PM：待填写</div>
-                            </div>
+                        <div class="key-projects-placeholder">
+                            <div class="key-projects-placeholder-icon">🤖</div>
+                            <div class="key-projects-placeholder-text">AI 智能分析功能正在开发中</div>
                         </div>
                     </div>
                 </div>
@@ -3957,61 +3907,9 @@
                 <div class="key-projects">
                     <div class="key-projects-title">攻坚项目概览</div>
                     <div class="key-projects-grid">
-                        <!-- 用车 -->
-                        <div class="kp-card">
-                            <div class="kp-card-header car">
-                                <span class="kp-card-icon">🚗</span>
-                                <span class="kp-card-biz">用车</span>
-                                <span class="kp-status doing">进行中</span>
-                            </div>
-                            <div class="kp-card-body">
-                                <div class="kp-project-name">待填写攻坚项目</div>
-                                <div class="kp-progress-bar"><div class="kp-progress-fill" style="width:0%"></div></div>
-                                <div class="kp-desc">请填写项目描述</div>
-                                <div class="kp-pm">PM：待填写</div>
-                            </div>
-                        </div>
-                        <!-- 机票 -->
-                        <div class="kp-card">
-                            <div class="kp-card-header flight">
-                                <span class="kp-card-icon">✈️</span>
-                                <span class="kp-card-biz">机票</span>
-                                <span class="kp-status doing">进行中</span>
-                            </div>
-                            <div class="kp-card-body">
-                                <div class="kp-project-name">待填写攻坚项目</div>
-                                <div class="kp-progress-bar"><div class="kp-progress-fill" style="width:0%"></div></div>
-                                <div class="kp-desc">请填写项目描述</div>
-                                <div class="kp-pm">PM：待填写</div>
-                            </div>
-                        </div>
-                        <!-- 酒店 -->
-                        <div class="kp-card">
-                            <div class="kp-card-header hotel">
-                                <span class="kp-card-icon">🏨</span>
-                                <span class="kp-card-biz">酒店</span>
-                                <span class="kp-status doing">进行中</span>
-                            </div>
-                            <div class="kp-card-body">
-                                <div class="kp-project-name">待填写攻坚项目</div>
-                                <div class="kp-progress-bar"><div class="kp-progress-fill" style="width:0%"></div></div>
-                                <div class="kp-desc">请填写项目描述</div>
-                                <div class="kp-pm">PM：待填写</div>
-                            </div>
-                        </div>
-                        <!-- 火车票 -->
-                        <div class="kp-card">
-                            <div class="kp-card-header train">
-                                <span class="kp-card-icon">🚄</span>
-                                <span class="kp-card-biz">火车票</span>
-                                <span class="kp-status doing">进行中</span>
-                            </div>
-                            <div class="kp-card-body">
-                                <div class="kp-project-name">待填写攻坚项目</div>
-                                <div class="kp-progress-bar"><div class="kp-progress-fill" style="width:0%"></div></div>
-                                <div class="kp-desc">请填写项目描述</div>
-                                <div class="kp-pm">PM：待填写</div>
-                            </div>
+                        <div class="key-projects-placeholder">
+                            <div class="key-projects-placeholder-icon">🤖</div>
+                            <div class="key-projects-placeholder-text">AI 智能分析功能正在开发中</div>
                         </div>
                     </div>
                 </div>
@@ -4412,7 +4310,7 @@
                             <span class="brand-tag brand-ctrip">携程商旅</span>
                             <span>2026-03-15</span>
                         </div>
-                        <p>携程商旅重磅发布智能出行助手「程星途」，覆盖行程规划、智能提醒、风险预警等全场景。AI可自动生成差旅分析报告，将差旅数据转化为企业核心资产。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#fff7e6 0%,#ffe7ba 100%);border-left:3px solid #fa8c16;border-radius:6px;color:#ad6800;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>强调我们也有智能化工具，但更注重<b>人工+智能双保障</b>，避免过度依赖AI导致的服务断层</span></p>
+                        <p>携程商旅重磅发布智能出行助手「程星途」，覆盖行程规划、智能提醒、风险预警等全场景。AI可自动生成差旅分析报告，将差旅数据转化为企业核心资产。<br><span class="card-insight">💡 <b>销售启示：</b>强调我们也有智能化工具，但更注重<b>人工+智能双保障</b>，避免过度依赖AI导致的服务断层</span></p>
                     </a>
 
                     <a href="https://cloud.tencent.com/developer/news/2506065" target="_blank" class="competitor-card">
@@ -4425,7 +4323,7 @@
                             <span class="brand-tag brand-tongcheng">同程商旅</span>
                             <span>2026-03-18</span>
                         </div>
-                        <p>同程商旅AI行程管家可实时预警航班延误并自动匹配替代方案，减少72%的应急协调成本。超预算订单拦截率提升至97%，新增"差标智能提醒"功能，超差标订单提交量下降40%。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#fff7e6 0%,#ffe7ba 100%);border-left:3px solid #fa8c16;border-radius:6px;color:#ad6800;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>我们的优势在于更<b>灵活的差标配置</b>和更快速的<b>客服人工介入</b></span></p>
+                        <p>同程商旅AI行程管家可实时预警航班延误并自动匹配替代方案，减少72%的应急协调成本。超预算订单拦截率提升至97%，新增"差标智能提醒"功能，超差标订单提交量下降40%。<br><span class="card-insight">💡 <b>销售启示：</b>我们的优势在于更<b>灵活的差标配置</b>和更快速的<b>客服人工介入</b></span></p>
                     </a>
 
                     <a href="http://www.guojialvye.com/cb/lyzx/8772.html" target="_blank" class="competitor-card">
@@ -4451,7 +4349,7 @@
                             <span class="brand-tag brand-ali">阿里商旅</span>
                             <span>2026-03-10</span>
                         </div>
-                        <p>阿里商旅正式推出AI原生智能体，员工可通过聊天式交互快速完成所有差旅需求，无需频繁切换平台。系统可在合规前提下精准匹配员工偏好，将企业策略政策前置融入每一段行程，避免事后分析追责。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#fff7e6 0%,#ffe7ba 100%);border-left:3px solid #fa8c16;border-radius:6px;color:#ad6800;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>强调我们的<b>政策执行更灵活</b>，可根据企业实际情况定制，不强制标准化</span></p>
+                        <p>阿里商旅正式推出AI原生智能体，员工可通过聊天式交互快速完成所有差旅需求，无需频繁切换平台。系统可在合规前提下精准匹配员工偏好，将企业策略政策前置融入每一段行程，避免事后分析追责。<br><span class="card-insight">💡 <b>销售启示：</b>强调我们的<b>政策执行更灵活</b>，可根据企业实际情况定制，不强制标准化</span></p>
                     </a>
 
                     <a href="https://ex.chinadaily.com.cn/exchange/partners/82/rss/channel/cn/columns/sz8srm/stories/WS68567da6a31009d21e5bdd57.html" target="_blank" class="competitor-card">
@@ -4477,7 +4375,7 @@
                             <span class="brand-tag brand-ctrip">携程</span>
                             <span>2026-03-05</span>
                         </div>
-                        <p>携程宣布3月10日起在商家管理后台下线"AI生意助手"（调价助手），成为国内首个主动下线该类功能的OTA平台。业界普遍认为是在反垄断调查压力下的主动合规整改。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#f6ffed 0%,#d9f7be 100%);border-left:3px solid #52c41a;border-radius:6px;color:#389e0d;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>可借势强调我们的<b>价格透明</b>和<b>合规性</b>，对比携程的"大数据杀熟"和垄断问题</span></p>
+                        <p>携程宣布3月10日起在商家管理后台下线"AI生意助手"（调价助手），成为国内首个主动下线该类功能的OTA平台。业界普遍认为是在反垄断调查压力下的主动合规整改。<br><span class="card-insight-green">💡 <b>销售启示：</b>可借势强调我们的<b>价格透明</b>和<b>合规性</b>，对比携程的"大数据杀熟"和垄断问题</span></p>
                     </a>
 
                     <a href="http://www.guojialvye.com/cb/lyzx/8772.html" target="_blank" class="competitor-card">
@@ -4516,7 +4414,7 @@
                             <span class="brand-tag" style="background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;">曹操出行</span>
                             <span>2026-01-08</span>
                         </div>
-                        <p>曹操出行宣布并购蔚星科技（耀出行，高端礼宾出行）和吉利商旅（差旅管理全流程），总对价约2.9亿元，构建"一站式科技出行平台"。耀出行已服务8000家企业，吉利商旅号称帮企业降本30%。这意味着用车平台正加速向商旅管理渗透，与滴滴ES直接短兵相接。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%);border-left:3px solid #e91e63;border-radius:6px;color:#880e4f;font-size:13px;line-height:1.5;">⚠️ <b>威胁预警：</b>曹操有吉利集团资源背书，+耀出行高端场景，正面竞争我们的<b>企业用车+商旅一体化</b>定位，需密切关注其落地进展</span></p>
+                        <p>曹操出行宣布并购蔚星科技（耀出行，高端礼宾出行）和吉利商旅（差旅管理全流程），总对价约2.9亿元，构建"一站式科技出行平台"。耀出行已服务8000家企业，吉利商旅号称帮企业降本30%。这意味着用车平台正加速向商旅管理渗透，与滴滴ES直接短兵相接。<br><span class="card-insight-pink">⚠️ <b>威胁预警：</b>曹操有吉利集团资源背书，+耀出行高端场景，正面竞争我们的<b>企业用车+商旅一体化</b>定位，需密切关注其落地进展</span></p>
                     </a>
                 </div>
 
@@ -4531,7 +4429,7 @@
                             <span class="source-tag">环球旅讯</span>
                             <span>2026-03-18</span>
                         </div>
-                        <p>Gartner预测2026年将有65%的企业采用AI驱动的动态商旅政策引擎。合思商旅AI审批模块实现秒级审批，错误率降至0.3%以下；携程商旅通过"程星途"智能助手实现全流程自动化；分贝通AI Agent可根据会议日程自动生成行程。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#fff7e6 0%,#ffe7ba 100%);border-left:3px solid #fa8c16;border-radius:6px;color:#ad6800;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>AI是趋势，但企业更关注<b>"智能+人工"的混合保障模式</b>，避免纯AI导致的服务断层</span></p>
+                        <p>Gartner预测2026年将有65%的企业采用AI驱动的动态商旅政策引擎。合思商旅AI审批模块实现秒级审批，错误率降至0.3%以下；携程商旅通过"程星途"智能助手实现全流程自动化；分贝通AI Agent可根据会议日程自动生成行程。<br><span class="card-insight">💡 <b>销售启示：</b>AI是趋势，但企业更关注<b>"智能+人工"的混合保障模式</b>，避免纯AI导致的服务断层</span></p>
                     </a>
 
                     <a href="https://news.qq.com/rain/a/20260114A06O6300" target="_blank" class="competitor-card industry">
@@ -5071,21 +4969,16 @@
             }
 
             function render() {
-                const { pct, elapsed, remain, week, month } = calcProgress();
-                const arc   = document.getElementById('syrArc');
-                const svg   = document.getElementById('syrSvg');
+                const { pct, elapsed, remain, week } = calcProgress();
                 const pctEl = document.getElementById('syrPct');
                 const wkEl  = document.getElementById('syrWeek');
                 const elEl  = document.getElementById('syrElapsed');
                 const rmEl  = document.getElementById('syrDays');
-                if (!arc) return;
+                const bar   = document.getElementById('syrBar');
+                if (!pctEl) return;
 
-                // 注入月份点
-                injectMonthDots(svg, month);
-
-                // 延迟一帧让浏览器渲染后再触发 transition
                 requestAnimationFrame(() => setTimeout(() => {
-                    arc.style.strokeDashoffset = CIRC * (1 - pct);
+                    if (bar) bar.style.width = Math.round(pct * 100) + '%';
                     animNum(pctEl, Math.round(pct * 100), 1800, v => v);
                     animNum(wkEl,  week,    1000, v => `第${v}周`);
                     animNum(elEl,  elapsed, 1200, v => `${v}天`);
