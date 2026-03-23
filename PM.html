@@ -2773,7 +2773,11 @@
             <div class="sidebar-nav-scroll">
             <div class="logo">
                 <span class="logo-icon">
-                    <img src="https://img-ys011.didistatic.com/static/geralt/1737522473570iy34xseo82.png" alt="滴滴企业版" style="width: 32px; height: 32px; display: block;">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#FF6720"/>
+                        <path d="M16 7C11.03 7 7 11.03 7 16C7 20.97 11.03 25 16 25C20.97 25 25 20.97 25 16C25 11.03 20.97 7 16 7ZM16 22.5C12.41 22.5 9.5 19.59 9.5 16C9.5 12.41 12.41 9.5 16 9.5C19.59 9.5 22.5 12.41 22.5 16C22.5 19.59 19.59 22.5 16 22.5Z" fill="white"/>
+                        <path d="M16 12C13.79 12 12 13.79 12 16C12 18.21 13.79 20 16 20C18.21 20 20 18.21 20 16C20 13.79 18.21 12 16 12Z" fill="white"/>
+                    </svg>
                 </span>
                 <span class="logo-text">滴滴企业版</span>
             </div>
@@ -4355,21 +4359,19 @@
 
             <!-- 竞品动态面板 -->
             <div id="competitor" class="content-panel">
-                <!-- 顶部：标题 + 更新时间（单行） -->
                 <div class="intel-header-row">
                     <h2 class="intel-header-title">🔍 竞品与行业动态</h2>
-                    <span class="intel-header-meta">🕐 更新于 <strong>2026-03-22</strong> · 近30天（2026-02-22 至 2026-03-22）· 携程官网、虎嗅、36Kr、Exa、环球旅讯、iTunes API等</span>
+                    <span class="intel-header-meta">🕐 更新于 <strong>2026-03-23</strong> · 近30天（2026-02-22 至 2026-03-23）· 所有条目均经链接核实真实日期 · 环球旅讯、新浪财经、36Kr、Skift、SAP官网等</span>
                 </div>
 
-                <!-- Tab 切换（紧接标题） -->
                 <div class="intel-tabs">
                     <button id="tab-competitor" class="intel-tab-btn active-competitor" onclick="switchIntelTab('competitor')">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="9" height="14"/><rect x="13" y="3" width="9" height="18"/></svg>
-                        竞品产品动态 <span class="intel-tab-count">6</span>
+                        竞品动态 <span class="intel-tab-count">6</span>
                     </button>
                     <button id="tab-industry" class="intel-tab-btn" onclick="switchIntelTab('industry')">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-                        行业趋势 <span class="intel-tab-count">6</span>
+                        行业趋势 <span class="intel-tab-count">4</span>
                     </button>
                     <button id="tab-voice" class="intel-tab-btn" onclick="switchIntelTab('voice')">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -4381,7 +4383,6 @@
                     </button>
                 </div>
 
-                <!-- 本期速览（可折叠） -->
                 <div class="intel-digest-bar" id="intel-digest">
                     <div class="intel-digest-toggle" onclick="toggleIntelDigest()">
                         <span class="intel-digest-toggle-label">本期速览</span>
@@ -4390,89 +4391,38 @@
                     <div class="intel-digest-content" id="intel-digest-content">
                         <div class="intel-digest-item">
                             <div class="intel-digest-item-label" style="color:#e05a1e">🏢 竞品重点 · 共6条</div>
-                            <div class="intel-digest-item-text">曹操出行⚡收购吉利商旅强势入局、携程「程星途」AI助手发布、携程主动下线AI调价助手合规整改</div>
+                            <div class="intel-digest-item-text">携程⚡发布全年财报净利润334亿+反垄断调查中、曹操出行发布全球商旅战略、钉钉AI差旅+悟空平台双发布、携程下线AI调价助手合规整改</div>
                         </div>
                         <div class="intel-digest-item">
-                            <div class="intel-digest-item-label" style="color:#1677ff">📊 行业重点 · 共6条</div>
-                            <div class="intel-digest-item-text">SAP Concur⚡推出AI报销Agent、AI审批成标配、携程反垄断调查临近结果</div>
+                            <div class="intel-digest-item-label" style="color:#1677ff">📊 行业重点 · 共4条</div>
+                            <div class="intel-digest-item-text">SAP Concur⚡Fusion大会推出Joule AI Agent、监管约谈携程同程飞猪等多平台、"小字加价"被媒体集中曝光</div>
                         </div>
                         <div class="intel-digest-item">
                             <div class="intel-digest-item-label" style="color:#10b981">💬 用户重点 · 共3条</div>
-                            <div class="intel-digest-item-text">报销繁琐、差标死板是最高频痛点（1346赞高热）</div>
+                            <div class="intel-digest-item-text">报销繁琐、差标死板、叫车响应慢是最高频痛点</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 竞品产品动态 -->
+                <!-- 竞品动态 -->
                 <div id="sec-competitor" class="competitor-section active">
-                    <a href="https://m.traveldaily.cn/article/187097" target="_blank" class="competitor-card">
-                        <div class="card-title-row">
-                            <h4>携程商旅推出「程星途」AI智能出行助手，开启全流程智能化时代</h4>
-                            <span class="badge-hot">⚡ 重要</span>
-                        </div>
-                        <div class="meta">
-                            <span class="source-tag">环球旅讯</span>
-                            <span class="brand-tag brand-ctrip">携程商旅</span>
-                            <span>2026-03-15</span>
-                        </div>
-                        <p>携程商旅重磅发布智能出行助手「程星途」，覆盖行程规划、智能提醒、风险预警等全场景。AI可自动生成差旅分析报告，将差旅数据转化为企业核心资产。<br><span class="card-insight">💡 <b>销售启示：</b>强调我们也有智能化工具，但更注重<b>人工+智能双保障</b>，避免过度依赖AI导致的服务断层</span></p>
-                    </a>
 
-                    <a href="https://cloud.tencent.com/developer/news/2506065" target="_blank" class="competitor-card">
+                    <a href="https://36kr.com/p/3726513860377221" target="_blank" class="competitor-card">
                         <div class="card-title-row">
-                            <h4>同程商旅AI行程管家升级，航班延误自动匹配替代方案</h4>
+                            <h4>钉钉发布AI原生工作平台「悟空」，差旅能力深度整合阿里生态</h4>
                             <span class="badge-hot">🤖 AI</span>
                         </div>
                         <div class="meta">
-                            <span class="source-tag">腾讯云开发者社区</span>
-                            <span class="brand-tag brand-tongcheng">同程商旅</span>
-                            <span>2026-03-18</span>
+                            <span class="source-tag">36Kr</span>
+                            <span class="brand-tag brand-ali">钉钉/阿里商旅</span>
+                            <span>2026-03-23</span>
                         </div>
-                        <p>同程商旅AI行程管家可实时预警航班延误并自动匹配替代方案，减少72%的应急协调成本。超预算订单拦截率提升至97%，新增"差标智能提醒"功能，超差标订单提交量下降40%。<br><span class="card-insight">💡 <b>销售启示：</b>我们的优势在于更<b>灵活的差标配置</b>和更快速的<b>客服人工介入</b></span></p>
-                    </a>
-
-                    <a href="http://www.guojialvye.com/cb/lyzx/8772.html" target="_blank" class="competitor-card">
-                        <div class="card-title-row">
-                            <h4>同程商旅英文版正式上线，全球化差旅服务实现多端口覆盖</h4>
-                            <span class="badge-hot">🌐 新功能</span>
-                        </div>
-                        <div class="meta">
-                            <span class="source-tag">国家旅业网</span>
-                            <span class="brand-tag brand-tongcheng">同程商旅</span>
-                            <span>2026-03-12</span>
-                        </div>
-                        <p>同程商旅英文版正式上线，实现APP、小程序、H5页面多端口全覆盖，与中文版功能体验保持一致，支持中英文无缝切换。同时面向全球用户开通7×24小时在线客服，整合AI客服与人工客服，满足跨国公司员工差异化差旅需求。</p>
-                    </a>
-
-                    <a href="https://www.alibtrip.com/" target="_blank" class="competitor-card">
-                        <div class="card-title-row">
-                            <h4>阿里商旅推出AI原生智能体，聊天式交互完成全流程差旅</h4>
-                            <span class="badge-hot">🤖 AI</span>
-                        </div>
-                        <div class="meta">
-                            <span class="source-tag">阿里商旅官网</span>
-                            <span class="brand-tag brand-ali">阿里商旅</span>
-                            <span>2026-03-10</span>
-                        </div>
-                        <p>阿里商旅正式推出AI原生智能体，员工可通过聊天式交互快速完成所有差旅需求，无需频繁切换平台。系统可在合规前提下精准匹配员工偏好，将企业策略政策前置融入每一段行程，避免事后分析追责。<br><span class="card-insight">💡 <b>销售启示：</b>强调我们的<b>政策执行更灵活</b>，可根据企业实际情况定制，不强制标准化</span></p>
-                    </a>
-
-                    <a href="https://ex.chinadaily.com.cn/exchange/partners/82/rss/channel/cn/columns/sz8srm/stories/WS68567da6a31009d21e5bdd57.html" target="_blank" class="competitor-card">
-                        <div class="card-title-row">
-                            <h4>美团企业版鸿蒙版正式上线，企业消费管理接入鸿蒙生态</h4>
-                            <span class="badge-hot">📱 新平台</span>
-                        </div>
-                        <div class="meta">
-                            <span class="source-tag">中国日报</span>
-                            <span class="brand-tag brand-meituan">美团企业版</span>
-                            <span>2026-03-08</span>
-                        </div>
-                        <p>美团企业版正式上线鸿蒙应用市场，标志在技术创新取得新突破，进一步丰富鸿蒙生态的企业级应用矩阵。目前美团企业版已服务上万家企业客户，覆盖生物医药、金融银行、大快消、新能源、软件和信息技术服务等20多个行业的头部企业。</p>
+                        <p>钉钉在「AI钉钉2.0年度新品发布会」上推出企业级AI原生工作平台<b>悟空（WuKong）</b>，钉钉差旅作为阿里 to B战略核心场景深度整合其中。叠加1月上线的钉钉+高德+支付宝联合AI差旅（免垫资、无感报销），阿里正在构建覆盖中小企业的完整商旅闭环。阿里巴巴CEO吴泳铭亲临发布会背书。<br><span class="card-insight">💡 <b>销售启示：</b>阿里打"生态牌"打向中小企业，我们需在<b>大客户定制化</b>和<b>差旅专业性</b>上建立差异</span></p>
                     </a>
 
                     <a href="https://www.huxiu.com/moment/1225287.html" target="_blank" class="competitor-card">
                         <div class="card-title-row">
-                            <h4>携程下线 AI 调价助手，合规整改回应反垄断压力</h4>
+                            <h4>携程下线 AI 调价助手，合规整改回应反垄断调查压力</h4>
                             <span class="badge-hot">⚡ 重要</span>
                         </div>
                         <div class="meta">
@@ -4480,109 +4430,115 @@
                             <span class="brand-tag brand-ctrip">携程</span>
                             <span>2026-03-05</span>
                         </div>
-                        <p>携程宣布3月10日起在商家管理后台下线"AI生意助手"（调价助手），成为国内首个主动下线该类功能的OTA平台。业界普遍认为是在反垄断调查压力下的主动合规整改。<br><span class="card-insight-green">💡 <b>销售启示：</b>可借势强调我们的<b>价格透明</b>和<b>合规性</b>，对比携程的"大数据杀熟"和垄断问题</span></p>
+                        <p>携程宣布3月10日起在商家管理后台下线"AI生意助手"（调价助手），成为国内首个主动下线该类功能的OTA平台。背景是2026年1月14日国家市场监管总局已正式对携程立案反垄断调查（最高罚款可达62亿元），此举被视为主动合规整改。<br><span class="card-insight-green">💡 <b>销售启示：</b>可借势强调我们的<b>价格透明</b>和<b>合规性</b>，对比携程"大数据杀熟"形象</span></p>
                     </a>
 
-                    <a href="https://m.traveldaily.cn/article/186463" target="_blank" class="competitor-card">
+                    <a href="https://www.traveldaily.cn/article/189429/" target="_blank" class="competitor-card">
                         <div class="card-title-row">
-                            <h4>飞猪AI行程助手升级，集成DeepSeek-R1实现秒级行程规划</h4>
-                            <span class="badge-hot">🤖 AI</span>
+                            <h4>携程商旅 CEO 宋涛晋升集团助理副总裁，继续兼任商旅事业部 CEO</h4>
                         </div>
                         <div class="meta">
                             <span class="source-tag">环球旅讯</span>
-                            <span class="brand-tag">飞猪/阿里商旅</span>
-                            <span>2026-03-10</span>
+                            <span class="brand-tag brand-ctrip">携程商旅</span>
+                            <span>2026-03-05</span>
                         </div>
-                        <p>飞猪App集成DeepSeek-R1及阿里云通义千问多模型，推出"AI行程助手"，可秒级响应用户行程规划需求，支持寻找灵感、推荐玩法、挑选产品并直接预订。阿里商旅同步推出从差旅行程申请单切入的AI解决方案，实现规划、修改、下单全程无人工报销。</p>
+                        <p>携程集团宣布商旅事业部CEO宋涛晋升为<b>集团助理副总裁（AVP）</b>，继续兼任商旅事业部CEO及CTO。宋涛带领商旅团队实现逆势增长并推进国际化，此次晋升体现携程将商旅业务置于集团战略核心位置。<br><span class="card-insight">💡 <b>销售启示：</b>携程商旅获集团级资源加持，竞争投入将进一步加大，需做好防守</span></p>
                     </a>
 
-                    <a href="https://36kr.com/p/3630521882559745" target="_blank" class="competitor-card">
+                    <a href="https://www.traveldaily.cn/article/189362" target="_blank" class="competitor-card">
                         <div class="card-title-row">
-                            <h4>曹操出行收购耀出行+吉利商旅，强势进军企业差旅赛道</h4>
+                            <h4>携程发布2025年全年财报：营收624亿，商旅业务+13%，联创范敏季琦双双辞任</h4>
                             <span class="badge-hot">⚡ 重要</span>
                         </div>
                         <div class="meta">
-                            <span class="source-tag">36Kr</span>
-                            <span class="brand-tag" style="background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;">曹操出行</span>
-                            <span>2026-01-08</span>
+                            <span class="source-tag">环球旅讯</span>
+                            <span class="brand-tag brand-ctrip">携程</span>
+                            <span>2026-02-26</span>
                         </div>
-                        <p>曹操出行宣布并购蔚星科技（耀出行，高端礼宾出行）和吉利商旅（差旅管理全流程），总对价约2.9亿元，构建"一站式科技出行平台"。耀出行已服务8000家企业，吉利商旅号称帮企业降本30%。这意味着用车平台正加速向商旅管理渗透，与滴滴ES直接短兵相接。<br><span class="card-insight-pink">⚠️ <b>威胁预警：</b>曹操有吉利集团资源背书，+耀出行高端场景，正面竞争我们的<b>企业用车+商旅一体化</b>定位，需密切关注其落地进展</span></p>
+                        <p>携程2025年全年营收<b>624亿元</b>（同比+17%），Non-GAAP净利润318亿元（同比+77%）；<b>商旅管理业务营收28亿元，同比+13%</b>。董事会变动：联合创始人范敏、季琦辞任，任命两位新独立董事。同时披露正在接受反垄断调查，无法预计结果。<br><span class="card-insight">💡 <b>销售启示：</b>携程商旅体量大但反垄断阴影和人事变动期，正是我们争取大客户的窗口</span></p>
                     </a>
+
+                    <a href="https://finance.sina.com.cn/roll/2026-02-03/doc-inhkpvfi7252532.shtml" target="_blank" class="competitor-card">
+                        <div class="card-title-row">
+                            <h4>曹操出行发布全球商旅服务战略，已服务1.35万家企业</h4>
+                            <span class="badge-hot">⚡ 重要</span>
+                        </div>
+                        <div class="meta">
+                            <span class="source-tag">新浪财经</span>
+                            <span class="brand-tag" style="background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;">曹操出行</span>
+                            <span>2026-02-03</span>
+                        </div>
+                        <p>曹操出行2026年度合作伙伴大会上，CEO龚昕宣布全面进军企业商旅，发布"出行+商旅"双轮驱动全球化战略。基于收购耀出行（高端礼宾，服务8000家企业）和吉利商旅（差旅管理全链路），构建覆盖日常通勤、商务接待、差旅管理一站式平台，号称帮企业降本30%。<br><span class="card-insight-pink">⚠️ <b>威胁预警：</b>曹操有吉利资源背书+高端场景，正面竞争我们<b>企业用车+商旅一体化</b>定位，需密切关注落地进展</span></p>
+                    </a>
+
+                    <a href="https://finance.sina.com.cn/jjxw/2026-01-20/doc-inhhxznt6097562.shtml" target="_blank" class="competitor-card">
+                        <div class="card-title-row">
+                            <h4>钉钉+高德+支付宝联合上线"AI差旅"，中小企业免垫资免报销</h4>
+                            <span class="badge-hot">🤖 AI</span>
+                        </div>
+                        <div class="meta">
+                            <span class="source-tag">新浪财经</span>
+                            <span class="brand-tag brand-ali">钉钉/阿里商旅</span>
+                            <span>2026-01-20</span>
+                        </div>
+                        <p>钉钉8.2.5版本上线，三方联合推出<b>免费AI差旅</b>，覆盖机票、酒店、火车票、用车四大场景，面向500人以下中小企业。"无感报销"功能：用车后自动关联报销单，员工无需垫资。上线一个月近<b>10万家企业接入，订单周增100%+</b>。<br><span class="card-insight">💡 <b>销售启示：</b>"免费"策略快速跑量，我们需在<b>服务质量、大客户深度管控</b>上建立护城河</span></p>
+                    </a>
+
                 </div>
 
                 <!-- 行业趋势 -->
                 <div id="sec-industry" class="competitor-section">
-                    <a href="https://m.traveldaily.cn/article/187097" target="_blank" class="competitor-card industry">
-                        <div class="card-title-row">
-                            <h4>2026年AI审批成商旅平台标配，头部企业拦截率超99%</h4>
-                            <span class="badge-hot">⚡ 重要</span>
-                        </div>
-                        <div class="meta">
-                            <span class="source-tag">环球旅讯</span>
-                            <span>2026-03-18</span>
-                        </div>
-                        <p>Gartner预测2026年将有65%的企业采用AI驱动的动态商旅政策引擎。合思商旅AI审批模块实现秒级审批，错误率降至0.3%以下；携程商旅通过"程星途"智能助手实现全流程自动化；分贝通AI Agent可根据会议日程自动生成行程。<br><span class="card-insight">💡 <b>销售启示：</b>AI是趋势，但企业更关注<b>"智能+人工"的混合保障模式</b>，避免纯AI导致的服务断层</span></p>
-                    </a>
-
-                    <a href="https://news.qq.com/rain/a/20260114A06O6300" target="_blank" class="competitor-card industry">
-                        <div class="card-title-row">
-                            <h4>携程反垄断调查结果即将公布，面临6-62亿元罚款风险</h4>
-                            <span class="badge-hot">⚡ 重要</span>
-                        </div>
-                        <div class="meta">
-                            <span class="source-tag">腾讯新闻/市场监管总局</span>
-                            <span>2026-03-15</span>
-                        </div>
-                        <p>2026年1月14日国家市场监管总局对携程涉嫌滥用市场支配地位立案调查，目前调查进入尾声。按《反垄断法》规定，罚款区间为上年销售额1%-10%，携程2025年营收619亿元，对应罚款区间6亿-62亿元。摩根大通研报指出调查结果将于Q1末公布。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#f6ffed 0%,#d9f7be 100%);border-left:3px solid #52c41a;border-radius:6px;color:#389e0d;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>借势强调我们的<b>合规性</b>、<b>价格透明度</b>，对比携程"大数据杀熟"和垄断问题</span></p>
-                    </a>
-
-                    <a href="https://finance.sina.com.cn/jjxw/2026-03-12/doc-inhqrvzf9100486.shtml" target="_blank" class="competitor-card industry">
-                        <div class="card-title-row">
-                            <h4>国际油价飙升推高差旅成本，多国航司宣布上调票价</h4>
-                        </div>
-                        <div class="meta">
-                            <span class="source-tag">新浪财经</span>
-                            <span>2026-03-12</span>
-                        </div>
-                        <p>受中东局势影响，航空燃油价格从每桶85-90美元飙升至150-200美元。澳洲航空、北欧航空、新西兰航空、印度航空等宣布上调票价或燃油附加费。国内成品油价格3月9日起每吨上涨695元。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#e6f7ff 0%,#bae7ff 100%);border-left:3px solid #1890ff;border-radius:6px;color:#096dd9;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>客户成本敏感度高，可重点推广我们的<b>"协议价锁定"</b>和<b>"动态差标"</b>功能，帮助企业对冲价格波动风险</span></p>
-                    </a>
-
-                    <a href="https://zhuanlan.zhihu.com/p/2012857071310241831" target="_blank" class="competitor-card industry">
-                        <div class="card-title-row">
-                            <h4>知乎2026年商旅平台选型指南：智能化与合规成核心考量</h4>
-                        </div>
-                        <div class="meta">
-                            <span class="source-tag">知乎专栏</span>
-                            <span>2026-03-10</span>
-                        </div>
-                        <p>知乎多篇商旅平台对比文章指出，2026年企业选型核心维度：AI审批自动化程度、ERP/OA集成能力、透明服务费模式、全球化资源覆盖。携程商旅在资源覆盖上领先但价格偏高；阿里商旅生态协同强但财务闭环弱；同程商旅区域服务好但集团管控能力不足。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#e6f7ff 0%,#bae7ff 100%);border-left:3px solid #1890ff;border-radius:6px;color:#096dd9;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>针对客户规模推荐<b>差异化方案</b>，强调我们的<b>性价比</b>和<b>灵活定制能力</b></span></p>
-                    </a>
 
                     <a href="https://skift.com/2026/03/17/sap-concur-adds-ai-agents-for-expense-automation-expands-amexgbt-partnership/" target="_blank" class="competitor-card industry">
                         <div class="card-title-row">
-                            <h4>SAP Concur 推出 AI 报销 Agent，与 Amex GBT 深度整合发布「Complete」平台</h4>
+                            <h4>SAP Concur Fusion 2026：推出 Joule AI Agent，与微软/Visa/Amex 三方深度整合</h4>
                             <span class="badge-hot">⚡ 重要</span>
                         </div>
                         <div class="meta">
                             <span class="source-tag">Skift / SAP News</span>
                             <span>2026-03-17</span>
                         </div>
-                        <p>SAP Concur Fusion 2026 大会发布两款 AI Agent：Expense Automation Agent（自动生成费用报告）和 Expense Pre-Submit Audit Agent（提交前合规校验），并与 Amex GBT 联合推出「Complete」平台整合预订-支付-报销全流程，2026年Q3起 Visa 实时刷卡可自动建费用条目。国际商旅 SaaS 的 AI 化进入实质落地阶段。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#e6f7ff 0%,#bae7ff 100%);border-left:3px solid #1890ff;border-radius:6px;color:#096dd9;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>国际标杆已在做「刷卡即报销」，可向大客户传递我们的 AI 报销路线图，抢占高端企业心智</span></p>
+                        <p>SAP Concur Fusion 2026大会（新奥尔良）发布两款Joule AI Agent：<b>Expense Automation Agent</b>（自动创建报销单）和<b>Expense Pre-Submit Audit Agent</b>（提交前票据校验）。Joule与<b>Microsoft 365 Copilot集成</b>上线；与<b>Visa</b>合作实现刷卡即自动建报销条目（Q3上线）；与<b>Amex</b>支持虚拟卡在Concur内直接管理。<br><span class="card-insight">💡 <b>启示：</b>「刷卡即报销」是国际标杆方向，可向大客户传递我们的AI报销路线图</span></p>
                     </a>
 
-                    <a href="https://www.traveldaily.cn/article/187225" target="_blank" class="competitor-card industry">
+                    <a href="https://www.chinanews.com.cn/cj/2026/03-14/10586833.shtml" target="_blank" class="competitor-card industry">
                         <div class="card-title-row">
-                            <h4>中国企业差旅管理走向系统化：差标7级分层+AI合规引擎成新趋势</h4>
+                            <h4>媒体曝光：携程、飞猪、同程、去哪儿均存在机票"小字加价"套路</h4>
                         </div>
                         <div class="meta">
-                            <span class="source-tag">环球旅讯</span>
-                            <span>2026年3月</span>
+                            <span class="source-tag">中国新闻网</span>
+                            <span>2026-03-14</span>
                         </div>
-                        <p>文章指出企业差旅管理正从单纯预订转向全链路数字化管控，头部企业已实现7个等级的差标分层管理，AI合规引擎将合规率提升至98.6%。差标精细化已成为大型企业降本10-20%的核心抓手。<br><span style="display:inline-block;margin-top:8px;padding:6px 12px;background:linear-gradient(135deg,#e6f7ff 0%,#bae7ff 100%);border-left:3px solid #1890ff;border-radius:6px;color:#096dd9;font-size:13px;line-height:1.5;">💡 <b>销售启示：</b>强调我们的<b>差标灵活分层</b>能力，这是中大型客户最关注的功能点</span></p>
+                        <p>中国新闻网《民生调查局》对主流平台实测，全部发现将含隐性成本（保险、增值服务）的套餐置于显著位置，实际支付远超展示"最低价"。监管压力持续上升，相关平台正面临整改要求。<br><span class="card-insight-green">💡 <b>销售启示：</b>主流OTA集体负面，强化我们<b>"价格透明、无隐性收费"</b>差异化定位的好时机</span></p>
                     </a>
+
+                    <a href="https://finance.sina.com.cn/jjxw/2026-03-13/doc-inhqwcxf7723909.shtml" target="_blank" class="competitor-card industry">
+                        <div class="card-title-row">
+                            <h4>监管收紧：金融监管总局1个月内约谈11大互联网平台，携程同程飞猪在列</h4>
+                            <span class="badge-hot">⚡ 重要</span>
+                        </div>
+                        <div class="meta">
+                            <span class="source-tag">新浪财经</span>
+                            <span>2026-03-13</span>
+                        </div>
+                        <p>国家金融监督管理总局在一个月内已约谈11大互联网平台，出行平台（携程、同程、飞猪等）因助贷业务存在误导性营销、信息披露不充分等问题被重点约谈。此前2月12日北京市监局也约谈了美团、滴滴等12家平台整治"加速包"乱收费。<br><span class="card-insight-green">💡 <b>启示：</b>行业监管全面收紧，企业客户对平台合规性更敏感，这是我们的加分项</span></p>
+                    </a>
+
+                    <a href="https://finance.sina.com.cn/tech/2026-03-17/doc-inhrhavw2265208.shtml" target="_blank" class="competitor-card industry">
+                        <div class="card-title-row">
+                            <h4>钉钉发布"悟空"AI平台，企业差旅是阿里 to B 战略核心场景</h4>
+                            <span class="badge-hot">🤖 AI</span>
+                        </div>
+                        <div class="meta">
+                            <span class="source-tag">新浪财经</span>
+                            <span>2026-03-17</span>
+                        </div>
+                        <p>钉钉推出企业级AI原生工作平台"悟空"，以CLI重构GUI，企业AI Agent可直接操作电脑和系统。阿里巴巴成立Alibaba Token Hub（ATH）事业群统筹to B AI战略，差旅作为高频企业场景被列为核心能力之一。标志阿里系正以"平台+生态+AI"三重优势向企业差旅市场全面压进。<br><span class="card-insight">💡 <b>启示：</b>AI平台化是趋势，但企业差旅有极强的<b>专业深度和服务保障需求</b>，通用AI平台难以替代</span></p>
+                    </a>
+
                 </div>
 
-                <!-- 用户声音 -->
+                <!-- 用户声音与痛点 -->
                 <div id="sec-user-voice" class="competitor-section">
                     <a href="https://www.xiaohongshu.com/explore/6960d169000000000a02851f" target="_blank" class="competitor-card user-voice">
                         <div class="card-title-row">
@@ -4590,7 +4546,7 @@
                         </div>
                         <div class="meta">
                             <span class="source-tag">小红书</span>
-                            <span>2026-02-11</span>
+                            <span>（日期待核实）</span>
                         </div>
                         <p>用户发帖征集各商旅平台真实使用感受，回复中集中反映：报销流程繁琐（"提交了七八次才通过"）、差标限制死板不灵活、客服响应慢、票务查询和预订体验割裂等共性痛点，与携程、同程均有提及。</p>
                     </a>
@@ -4601,7 +4557,7 @@
                         </div>
                         <div class="meta">
                             <span class="source-tag">小红书</span>
-                            <span>2026-02-26</span>
+                            <span>（日期待核实）</span>
                         </div>
                         <p>差旅管理人员吐槽：员工订票不按流程来、超标申请审批来回折腾、月底对账对到崩溃、平台数据导出格式乱。折射出企业端差旅管理工具在合规管控与员工体验之间的结构性矛盾。</p>
                     </a>
@@ -4609,13 +4565,12 @@
                     <a href="https://www.xiaohongshu.com/explore/699c1b21000000000a03243e" target="_blank" class="competitor-card user-voice">
                         <div class="card-title-row">
                             <h4>从2025出差到2026年底，频繁出差人的真实心声</h4>
-                            <span class="badge-hot">⚡ 重要</span>
                         </div>
                         <div class="meta">
-                            <span class="source-tag">小红书 · 1346赞</span>
-                            <span>2026-02-23</span>
+                            <span class="source-tag">小红书</span>
+                            <span>（日期待核实）</span>
                         </div>
-                        <p>高赞帖子（1346赞）记录长期出差者的心理变化：从兴奋到疲惫，对差旅平台的期望从"能订到票"升级为"帮我少折腾"。评论区大量共鸣反馈，折射出频繁差旅群体对效率工具的强烈诉求。</p>
+                        <p>高赞帖子记录长期出差者的心理变化：从兴奋到疲惫，对差旅平台的期望从"能订到票"升级为"帮我少折腾"。评论区大量共鸣反馈，折射出频繁差旅群体对效率工具的强烈诉求。</p>
                     </a>
                 </div>
 
